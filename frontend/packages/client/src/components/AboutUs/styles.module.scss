@@ -1,0 +1,44 @@
+@import "~@project/libs/assets/styles/variables";
+@import "~@project/libs/assets/styles/mixins";
+
+.about_us_container {
+  padding: 152px 0 120px;
+  display: flex;
+  @include desktop_xl {
+    padding: 0 36px;
+  }
+
+  @include tablet {
+    padding: 100px 40px 85px;
+  }
+  @include mobile {
+    padding: 88px 16px 80px;
+  }
+
+  .about_us_content {
+    @include container();
+    margin: 0 auto;
+    .about_us_title {
+      text-align: center;
+      margin-bottom: 50px;
+      @include mobile {
+        margin-bottom: 24px;
+        font-size: 24px;
+        line-height: 32px;
+      }
+    }
+    .about_us_description_container {
+      .description_text {
+        font-size: 24px;
+        line-height: 36px;
+        margin: 35px 0;
+        @include mobile {
+          margin: 20px 0;
+          font-size: 16px;
+          line-height: 24px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

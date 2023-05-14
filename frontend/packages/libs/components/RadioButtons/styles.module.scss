@@ -1,0 +1,31 @@
+@import '@project/libs/assets/styles/variables';
+
+.radio_button_container {
+  display: flex;
+  width: auto;
+  column-gap: 20px;
+}
+
+.radio_button {
+  column-gap: 2px;
+  display: flex;
+}
+.radio_circle {
+  width: 18px;
+  height: 18px;
+  border-radius: 100%;
+  position: relative;
+  margin-right: 6px;
+  display: flex;
+}
+
+.active_circle {
+  margin: 2px;
+  display: flex;
+  flex: 1;
+  background: $blue;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+

@@ -1,0 +1,47 @@
+@import '~@project/libs/assets/styles/variables';
+@import '~@project/libs/assets/styles/mixins';
+.arrow {
+	transition: 0.5s;
+}
+
+.rotate {
+	transform: rotate(-180deg);
+}
+.accardion_container {
+	width: 100%;
+	background-color: rgba(234, 238, 254, 0.6);
+	border-radius: 16px;
+	padding: 20px;
+	:global {
+		.my-dropdown-slidedown {
+			height: 500px;
+		}
+	}
+	.accardion_title {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 100%;
+		h3 {
+			font-weight: 700;
+			font-size: 32px;
+			line-height: 40px;
+			@include mobile {
+				font-size: 20px;
+				line-height: 28px;
+			}
+		}
+	}
+	.accardion_description {
+		margin-top: 24px;
+		font-size: 24px;
+		line-height: 32px;
+    font-weight: 500;
+		text-align: left;
+		@include mobile {
+			margin-top: 16px;
+			font-size: 14px;
+			line-height: 20px;
+		}
+	}
+}

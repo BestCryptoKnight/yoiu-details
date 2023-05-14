@@ -1,0 +1,27 @@
+@import '~@project/libs/assets/styles/variables';
+@import '~@project/libs/assets/styles/mixins';
+
+.status {
+  border-radius: 4px;
+  padding: 4px 12px;
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 600;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.green {
+  background-color: #d1ea3a;
+}
+.gray {
+  background-color: #ccc;
+}
+.purple {
+  background-color: #fb8cff;
+}
+.blue {
+  background-color: #78a7fc;
+}

@@ -1,0 +1,146 @@
+@import "~@project/libs/assets/styles/variables";
+@import "~@project/libs/assets/styles/mixins";
+
+.tier_container {
+  @include flexbox(center, center);
+  margin: 56px 0;
+  padding: $spacing-2xl 0;
+  @include mobile{
+      padding-top: $spacing-sm;
+  }
+  
+  .tier_content {
+    @include container();
+    width: 100%;
+
+    .nft_tier_cards_title {
+      color: $black1;
+     
+      @include mobile {
+    
+        
+        font-size: $font-lg;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.nft_tier_container {
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 40px 120px;
+  width: 100%;
+
+  @include desktop {
+    padding: 40px 40px 104px;
+  }
+
+  @include mobile {
+    padding: 40px 16px 80px;
+  }
+
+  .nft_tier_content_container {
+    @include container();
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 100px;
+
+    @include mobile {
+      margin-top: 48px;
+    }
+
+    .nft_tier_content {
+      display: flex;
+      /*   column-gap: 25px; */
+
+      @include desktop_xl {
+        flex-wrap: wrap-reverse;
+        justify-content: center;
+        row-gap: 104px;
+        column-gap: 0;
+      }
+
+      @include mobile {
+        row-gap: 80px;
+        column-gap: 0;
+      }
+
+      .nft_tier_cards_container {
+        position: relative;
+
+        .nft_tier_cards_title {
+          font-style: normal;
+          font-weight: 700;
+       
+          line-height: 40px;
+          color: $black1;
+          font-family: $montserrat;
+      
+        }
+
+        .nft_tier_cards_content {
+          display: flex;
+          gap: 13px;
+          @include container();
+          width: 100%;
+          /*    height: 396px; */
+
+          @include small_desktop {
+            max-width: 750px;
+          }
+
+          @include tablet {
+            max-width: 680px;
+          }
+
+          @include small_tablet {
+            max-width: 580px;
+          }
+
+          @include mobile {
+            max-width: 335px;
+          }
+
+          :global {
+            .swiper-button-prev {
+              color: $black;
+              width: 18px;
+              height: 18px;
+              top: 46%;
+              left: 4px;
+
+              @include tablet {
+                left: -6px;
+              }
+
+              &::after {
+                font-size: 13px;
+                font-weight: bold;
+              }
+            }
+
+            .swiper-button-next {
+              color: $black;
+              width: 18px;
+              height: 18px;
+              top: 46%;
+              right: -1px;
+
+              @include tablet {
+                right: -5px;
+              }
+
+              &::after {
+                font-size: 13px;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

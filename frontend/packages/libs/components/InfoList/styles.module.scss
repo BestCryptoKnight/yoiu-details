@@ -1,0 +1,50 @@
+@import '~@project/libs/assets/styles/variables';
+@import '~@project/libs/assets/styles/mixins';
+
+.info_list_wrapper {
+  width: 100%;
+
+  row-gap: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.info_item_container {
+
+  .info_item {
+    @include flexbox(center, space-between);  
+    width: 100%;
+    position: relative;
+
+    .info_label {
+      margin-right: auto;
+      font-size: 16px;
+    }
+
+    .info_value {
+      margin-left: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      color: $black;
+    }
+  }
+
+  .progress_bar {
+    margin-top: 4px;
+  }
+
+  .separator {
+    margin-top: 3px;
+    width: 100%;
+    height: 1px;
+  }
+
+}
+
+
+
+
+
+
+
+

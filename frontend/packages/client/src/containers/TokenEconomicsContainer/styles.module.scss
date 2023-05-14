@@ -1,0 +1,107 @@
+@import "~@project/libs/assets/styles/variables";
+@import "~@project/libs/assets/styles/mixins";
+
+.token_economics_container {
+  padding: 80px 0;
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+
+  background-color: $white2;
+  width: 100%;
+
+  justify-content: center;
+  align-items: center;
+
+  .token_economics_content {
+    display: flex;
+    flex-direction: row;
+
+    @include container();
+    width: 100%;
+    gap: 60px;
+
+    @include desktop1280 {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    @include desktop1280 {
+      gap: 49px;
+    }
+
+    .image {
+      @include desktop1280 {
+        width: 453px;
+        margin-left: 88px;
+      }
+      @include mobile {
+        width: 240px;
+        margin-left: 44px;
+      }
+    }
+    .token_economics_right_part_content {
+      width: 100%;
+      max-width: 754px;
+
+      .table {
+        margin: 16px 0px 42px 0px;
+        
+        table {
+          border: 1px solid #ccc;
+          width: 100%;
+        }
+        td,
+        th {
+          padding: 10px 6px;
+          border: 1px solid #ccc;
+        }
+        td {
+          font-size: 14px;
+          font-weight: 500;
+        }
+        @include mobile {
+            overflow-x: scroll;
+            th {
+                  padding: 5px 3px;
+                  border: 1px solid #ccc;
+                }
+          }
+      }
+
+      @include desktop1280 {
+        .h2 {
+          text-align: center;
+        }
+      }
+
+      .title {
+        @include desktop1280 {
+          text-align: center;
+        }
+        @include mobile {
+          font-size: 24px;
+          line-height: 32px;
+        }
+      }
+      .subtitle {
+        font-size: 28px;
+        font-weight: 600;
+      }
+      .description {
+        font-size: 24px;
+        line-height: 36px;
+        word-break: break-all;
+        @include desktop1280 {
+          max-width: 688px;
+        }
+        @include mobile {
+          margin-top: 24px;
+          font-size: 16px;
+          line-height: 24px;
+      
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+@import '~@project/libs/assets/styles/variables.scss';
+
+.h1 {
+  font-size: 48px;
+  line-height: 68px;
+  font-weight: 700;
+}
+
+.h2 {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 700;
+}
+
+.h3 {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+}
+
+.h4 {
+  text-align: left;
+  font-weight: bold;
+}
+
+.h6 {
+  text-align: left;
+  font-size: 20px;
+  margin : 8px 0
+}
+
+.span {
+  text-align: left;
+}
+
+.p {
+  text-align: left;
+}

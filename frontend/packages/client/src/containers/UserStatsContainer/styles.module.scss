@@ -1,0 +1,134 @@
+@import "~@project/libs/assets/styles/variables";
+@import "~@project/libs/assets/styles/mixins";
+
+.stats_container {
+  @include flexbox(center, center);
+  width: 100%;
+
+  .stats_content {
+    @include container();
+    width: 100%;
+  }
+  .box_container {
+    background: linear-gradient(90deg, #{$purple1}, #{$purple}, #{$blue3});
+    padding: 2px;
+   
+    width: 100%;
+    border-radius: 14px;
+  }
+
+  .box_content {
+    background: $white;
+    padding: $spacing-lg $spacing-md;
+    border-radius: 12px;
+    @include flexbox(center, space-between);
+
+    h3 {
+      font-weight: 600;
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    p {
+      color: $grey;
+      font-size: 14px;
+    }
+    .status {
+      @include flexbox(center, center);
+      gap: 12px;
+      margin-bottom: 10px;
+      span {
+        font-weight: 700;
+      }
+      @include mobile{
+            margin-top: $spacing-sm;
+            margin-bottom: 0px;
+            height: 24px!important;
+            font-size: 14px!important;
+      }
+    }
+    .kyc {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    @include mobile {
+      flex-direction: column;
+      padding:  $spacing-md;
+      &>div{
+            width: 100%;
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: space-between;
+      }
+      h3 {
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 0px;
+          }
+        
+    }
+  }
+
+  .stats_title {
+    margin: 50px 0;
+
+    @include mobile {
+      font-size: 24px;
+      line-height: 32px;
+      text-align: center;
+      margin: $spacing-sm 0;
+    }
+  }
+}
+
+.upgrade_container {
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 80px 120px;
+  width: 100%;
+
+  @include desktop {
+    padding: 0px 40px 80px;
+  }
+
+  @include mobile {
+    padding: 0px 24px 80px;
+  }
+
+  .upgrade_content {
+    @include container();
+    margin: 0 auto;
+    width: 100%;
+
+    .upgrade_title {
+      margin-bottom: 120px;
+      margin-top: 100px;
+
+      @include desktop {
+        margin-bottom: 50px;
+      }
+
+      @include mobile {
+        font-size: 24px;
+        line-height: 32px;
+        text-align: center;
+        margin-top: 40px;
+      }
+    }
+
+    .upgrade_content_cards {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      @include mobile {
+        gap: 20px;
+      }
+    }
+  }
+}

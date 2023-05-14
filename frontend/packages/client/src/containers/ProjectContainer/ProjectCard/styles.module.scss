@@ -1,0 +1,256 @@
+@import '~@project/libs/assets/styles/variables';
+@import '~@project/libs/assets/styles/mixins';
+
+$cardWidth: 460px;
+
+.project_card_container {
+  max-width: $cardWidth;
+  width: 100%;
+  padding: $spacing-md;
+  box-shadow: 0px 4px 18px 8px $greyOpacity;
+  background-color: $white2;
+  border-radius: $spacing-sm;
+  position: relative;
+
+  @include mobile {
+      padding: $spacing-sm;
+    }
+
+  .funded {
+    color: $blue2 !important;
+  }
+
+  
+
+  .project_title {
+    font-size: 36px;
+
+    @include mobile {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
+  .project_short_name {
+    font-size: 16px;
+    line-height: 24px;
+    opacity: 0.6;
+
+    @include mobile {
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+
+  .table {
+    margin-top: 29px;
+    display: flex;
+    gap: $spacing-sm;
+    flex-direction: column;
+
+    @include mobile {
+      margin-top: $spacing-sm;
+      gap: $spacing-xs;
+    }
+
+   
+    .table_item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      .label {
+        opacity: 0.6;
+        line-height: 28px;
+        font-weight: 600;
+        @include mobile {
+          font-size: 14px;
+          line-height: 20px;
+        }
+      }
+
+      .amount {
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: 700;
+
+        @include mobile {
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+
+      .swap_price {
+        font-size: 20px;
+        line-height: 28px;
+        font-weight: 600;
+
+        @include mobile {
+          font-size: 14px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+
+  .pool_address_label {
+    margin-top: 30px;
+    font-size: 16px;
+    opacity: 0.5;
+
+    @include mobile {
+      margin-top: 22px;
+      font-size: 12px;
+      line-height: 24px;
+    }
+  }
+
+  .pool_address {
+    margin-top: 4px;
+    font-size: 16px;
+    opacity: 0.9;
+
+    @include mobile {
+      margin-top: 0;
+      font-size: 12px;
+      line-height: 24px;
+    }
+  }
+
+  .backgroundImage {
+    position: absolute;
+    top: -25px;
+    left: -426px;
+    width: 600px;
+    opacity: 1;
+
+    @include mobile {
+      top: -74px;
+      left: -89px;
+      width: 400px;
+      opacity: 0.8;
+    }
+  }
+
+  .listing_header {
+    display: flex;
+    flex-direction: row;
+
+    .listing_image_container {
+      height: 78px;
+      width: 78px;
+      border-radius: 50%;
+      background-color: $white;
+      position: relative;
+
+      @include mobile {
+        height: 46px;
+        width: 46px;
+        margin-bottom: $spacing-sm;
+      }
+
+      .listing_card_image {
+        height: 78px;
+        width: 78px;
+      }
+
+      .listing_currency_icon {
+        position: absolute;
+        bottom: -7px;
+        right: -7px;
+        height: 36px;
+        width: 36px;
+      }
+
+      @include mobile {
+        .listing_card_image {
+          height: 46px;
+          width: 46px;
+        }
+
+        .listing_currency_icon {
+          position: absolute;
+          height: 20px;
+          width: 20px;
+          bottom: -7px;
+          right: -7px;
+        }
+      }
+    }
+
+    .listing_titles_container {
+      margin-left: 24px;
+      display: flex;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      @include mobile {
+        margin-left: 17px;
+      }
+
+      .listing_title {
+        font-size: 36px;
+        line-height: 44px;
+        font-weight: 700;
+      }
+
+      .listing_short_name {
+        font-size: 16px;
+        line-height: 24px;
+        opacity: 0.6;
+        font-weight: 600;
+      }
+
+      @include mobile {
+        .listing_title {
+          font-size: 20px;
+          line-height: 28px;
+        }
+
+        .listing_short_name {
+          font-size: 12px;
+          line-height: 20px;
+        }
+      }
+    }
+
+    .active_badge {
+      background-color: "red";
+      width: "16px";
+      height: "16px";
+      margin-top: "8px";
+      margin-right: "10px";
+      border-radius: "20px";
+    }
+
+    .active_button {
+      max-width: 76px;
+      max-height: 32px;
+      border-radius: 4px;
+      font-size: 16px;
+      line-height: 24px;
+      background-color: $blue4;
+      cursor: auto;
+
+      @include mobile {
+        font-size: 14px;
+        width: 61px;
+        height: 28px;
+      }
+
+      &:focus:enabled {
+        color: $white;
+      }
+    }
+  }
+}
+
+.smart_contract_address {
+      h3, p {
+            opacity: 0.6;
+            font-size: 16px;
+            word-break: break-all
+      }
+}

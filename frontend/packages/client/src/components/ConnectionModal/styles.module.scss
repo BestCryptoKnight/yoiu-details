@@ -1,0 +1,30 @@
+@import '~@project/libs/assets/styles/variables';
+@import '~@project/libs/assets/styles/mixins';
+
+.modal_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  min-width: 50%;
+  @include scale_up();
+
+  .actions {
+  
+
+   
+    p {
+      font-size: 16px;
+    }
+    a {
+      color: $darkBlue2;
+    }
+  }
+  img {
+    margin-left: 6%;
+  }
+  button {
+    max-width: 200px;
+  }
+}

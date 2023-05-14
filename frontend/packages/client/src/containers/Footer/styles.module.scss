@@ -1,0 +1,78 @@
+@import "~@project/libs/assets/styles/variables";
+@import "~@project/libs/assets/styles/mixins";
+
+.footer_container {
+  position: relative;
+  min-height: 160px;
+  border-top: 1px solid #efefef;
+  @include flexbox(center, center);
+@include mobile {
+      min-height: 180px;
+}
+  .footer_content {
+    height: 100%;
+    width: 100%;
+    @include container();
+    @include flexbox(center, space-between);
+    @include mobile {
+      flex-direction: column-reverse;
+      gap: $spacing-2xl;
+    }
+    .logo {
+      @include flexbox(center, center);
+      gap: 16px;
+      @include mobile {
+        img {
+          width: 48px;
+        }
+      }
+    }
+
+    .footer_all_rights {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 400;
+      color: $black;
+      opacity: 0.4;
+      grid-area: reserved;
+      @include mobile {
+        font-size: 14px;
+        text-align: center;
+      }
+    }
+
+    .footer_icons_container {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      @include flexbox(center, center);
+      gap: 24px;
+      @include tablet {
+        justify-content: center;
+      }
+    }
+
+    .links {
+      @include mobile {
+        @include flexbox(center, space-between);
+        gap: 16px;
+      }
+      a {
+        display: block;
+        text-align: end;
+        font-size: 16px;
+        font-weight: 500;
+        color: $grey;
+        margin: 8px 0;
+        @include transition();
+        @include mobile {
+          font-size: 14px;
+        }
+        &:hover {
+          color: $darkBlue;
+        }
+      }
+    }
+  }
+}

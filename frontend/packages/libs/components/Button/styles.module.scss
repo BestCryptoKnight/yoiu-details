@@ -1,0 +1,154 @@
+@import '~@project/libs/assets/styles/mixins';
+@import '~@project/libs/assets/styles/variables';
+
+.button {
+  height: $btnHeight1;
+  width: 360px;
+  border-radius: 6px;
+  box-sizing: border-box;
+  position: relative;
+  font-weight: $font-semi-bold;
+  font-size: $font-md;
+  line-height: 24px;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $blue;
+  @include transition();
+
+  @include mobile {
+    font-size: $font-xs;
+    height: $btnMobileHeight !important;
+  }
+
+  &.text {
+    background-color: transparent;
+  }
+
+  &.primary {
+    background-color: $white;
+    color: $blue;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  &.gray {
+    background-color: #ccc !important;
+    color: #fff !important
+  }
+
+  &.outline {
+    height: $btnHeight2;
+    background-color: transparent;
+    color: #0e0000;
+    width: 150px;
+    border: solid 2px #1d0303;
+
+    &:hover {
+      border-color: $blue4;
+      color: $blue4;
+    }
+  }
+
+  &.outline-white {
+    height: $btnHeight2;
+    background-color: transparent;
+    color: #ffffff;
+    width: 150px;
+    border: solid 2px #ffffff;
+
+    &:hover {
+      border-color: $blue4;
+      color: $blue4;
+    }
+  }
+
+  &.secondary {
+    color: $white;
+    background-color: $darkBlue;
+
+    &:hover {
+      background-color: $blue;
+    }
+
+    &:active:enabled {
+      color: $darkBlue;
+    }
+
+    &:focus:enabled {
+      color: $purple;
+    }
+  }
+
+  &.opacity {
+    color: $white;
+    background-color: $darkBlue;
+    opacity: 0.6;
+
+    &:active:enabled {
+      color: $darkBlue;
+      opacity: 0.6;
+    }
+  }
+
+  &.light {
+    color: $purple;
+
+    &:hover:enabled {
+      color: $white;
+    }
+
+    &:active:enabled {
+      color: $white;
+      background-color: $darkBlue;
+    }
+
+    &:focus:enabled {
+      color: $purple;
+    }
+  }
+
+  &.gradient {
+    height: $btnHeight2;
+    background: linear-gradient(90deg, #{$purple1}, #{$purple}, #{$blue3});
+
+    padding: 2px;
+
+    &:hover {
+      background: linear-gradient(90deg, #{$purple}, #{$blue3}, #{$purple1});
+    }
+  }
+
+  .gradient_background_layer {
+    flex: 1;
+    display: flex;
+    height: 100%;
+    background-color: $white;
+    border-radius: 5px;
+    color: $black;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .gradient_text {
+    background: linear-gradient(90deg, #{$blue3}, #{$purple}, #{$purple1});
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &.full_width {
+    width: 100%;
+  }
+
+}
+
+.disabled {
+  opacity: 0.3;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}

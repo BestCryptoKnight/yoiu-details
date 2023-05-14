@@ -1,0 +1,15 @@
+.notfound_page_conatiner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  h1 {
+    font-size: 70px;
+    font-weight: 600;
+    color: #ccc;
+  }
+  a {
+    color: #6c97ff;
+  }
+}

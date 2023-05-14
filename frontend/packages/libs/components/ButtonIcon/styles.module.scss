@@ -1,0 +1,15 @@
+
+$touchableAreaAroundIcon: 10px;
+
+.buttonIcon {
+  margin: -$touchableAreaAroundIcon;
+  padding: $touchableAreaAroundIcon;
+  border: 0;
+  background: none;
+  outline: 0;
+
+  justify-content: center;
+  align-items: center;
+  display: flex; 
+
+}

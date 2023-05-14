@@ -1,0 +1,10 @@
+.user_page_conatiner {
+
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  .step_title{
+    display: block;
+    text-align: center;
+  }
+}

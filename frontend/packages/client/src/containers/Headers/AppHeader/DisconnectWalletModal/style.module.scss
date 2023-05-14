@@ -1,0 +1,62 @@
+@import '~@project/libs/assets/styles/variables';
+@import '~@project/libs/assets/styles/mixins';
+
+.disconnect_modal {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 15px;
+  background-color: $white;
+  z-index: 100;
+  box-shadow: $grayShadowOpacity;
+  border-radius: 16px;
+  @include grow(200px);
+}
+
+.disconnect_modal_title {
+  max-width: 352px;
+  font-size: 24px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.disconnect_modal_disconnect_button {
+  margin-bottom: 5px;
+  font-size: 18px;
+  height: 60px;
+  width: 100%;
+
+  @include tablet {
+    font-size: 18px;
+    height: 50px;
+    width: 250px;
+  }
+
+  @include mobile {
+    font-size: 14px;
+    height: 40px;
+    width: 200px;
+  }
+}
+
+.button_logo {
+  width: 50px;
+  height: 50px;
+  margin-top: 20px;
+
+  @include tablet {
+    height: 60px;
+    width: 60px;
+  }
+
+  @include mobile {
+    margin-top: 10px;
+    height: 50px;
+    width: 50px;
+  }
+}

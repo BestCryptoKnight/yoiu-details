@@ -1,0 +1,7 @@
+**/node_modules
+**/ci_cd
+backend/dist
+backend/client
+frontend/packages/client/build
+**/.husky
+# **/.env

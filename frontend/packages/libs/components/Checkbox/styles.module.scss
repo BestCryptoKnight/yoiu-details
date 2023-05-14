@@ -1,0 +1,35 @@
+@import '~@project/libs/assets/styles/variables';
+@import '~@project/libs/assets/styles/mixins';
+
+.checkbox {
+  @include flexbox(flex-start, flex-start);
+  color: inherit;
+  display: inline-flex;
+}
+
+
+.inner {
+  @include flexbox(center, center);
+
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  transition: all $transition-time;
+  overflow: hidden;
+
+  .checked & {
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-color: $purple;
+    background-color: $purple;
+    background-size: cover;
+  }
+}
+
+.label {
+  margin-left: 16px;
+  text-align: left;
+  padding-top: 3px;
+  min-height: 24px;
+  margin-bottom: 4px;
+}

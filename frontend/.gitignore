@@ -1,0 +1,8 @@
+node_modules
+.eslintcache
+yarn-error.log
+.idea
+.DS_Store
+build.tar.gz
+build
+.yarn

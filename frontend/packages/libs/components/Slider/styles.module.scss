@@ -1,0 +1,21 @@
+@import '~@project/libs/assets/styles/variables';
+@import '~@project/libs/assets/styles/mixins';
+
+.slider_input {
+  :global {
+    .rc-slider-track {
+      background-color: $purple;
+    }
+
+    .rc-slider-handle {
+      background-color: $purple;
+      border: none;
+      opacity: 1;
+    }
+
+    .rc-slider-handle-dragging {
+      background-color: transparent;
+      box-shadow: none;
+    }
+  }
+}

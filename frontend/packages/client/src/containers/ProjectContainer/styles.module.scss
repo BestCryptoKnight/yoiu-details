@@ -1,0 +1,242 @@
+@import "~@project/libs/assets/styles/variables";
+@import "~@project/libs/assets/styles/mixins";
+
+.project_container {
+
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  align-self: center;
+  min-height: calc(100vh - 128px);
+
+  @include mobile {
+    margin-bottom: $spacing-md
+  }
+
+  .project_content {
+    @include container();
+    width: 100%;
+
+    .project_content_body {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: $spacing-2xl;
+
+
+
+      @include mobile {
+        margin-top: 26px;
+        gap: $spacing-md;
+      }
+
+      .card_container {
+        flex: 1;
+      }
+
+      .card_container>div {
+        max-width: none !important;
+      }
+
+
+      .project_slogan {
+        /*   margin-top: 27px; */
+        color: $black1;
+
+        @include mobile {
+          margin-top: 0;
+          font-size: 24px;
+          line-height: 32px;
+        }
+      }
+
+      .project_description {
+        margin-top: 30px;
+
+        @include mobile {
+          margin-top: 16px;
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+
+      .project_right_part_content {
+        width: 100%;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-lg;
+
+        @include mobile {
+          flex-direction: column-reverse;
+
+        }
+
+        @include desktop1280 {
+          text-align: center;
+          margin: 0 auto;
+        }
+
+
+        .join_button {
+          margin-top: $spacing-xs;
+
+          @include mobile {
+            margin-top: px;
+            width: 100%;
+            font-size: 14px;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.success_modal {
+  @include scale_up();
+  min-width: 50%;
+  display: flex;
+
+  .success_content {
+    text-align: center;
+    margin: auto;
+
+    .labels_notification {
+      margin-top: 20px;
+      text-align: center;
+      line-height: 10px;
+      font-weight: bold;
+
+      @include mobile {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.join_modal {
+  @include scale_up();
+  min-width: 50%;
+
+  .modal_header {
+    margin-bottom: 40px;
+
+    p {
+      font-size: 32px;
+      font-weight: 700;
+      text-align: center;
+    }
+  }
+
+  .modal_input {
+    background-color: $grey1;
+    display: flex;
+    align-items: center;
+
+    input {
+      background-color: $grey1;
+      color: $black;
+    }
+
+    .token {
+      width: 50%;
+
+      @include mobile {
+        width: 80%;
+      }
+    }
+  }
+
+  .tier_input {
+    background-color: $grey1;
+    color: $black;
+    height: 60px;
+    border-radius: 4px;
+    @include flexbox(center, center);
+  }
+
+  .actions {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 16px;
+    grid-row-gap: 0px;
+    margin-top: 16px;
+    align-items: center;
+
+    .deposit_button {
+      width: 100% !important;
+      height: 60px;
+      margin-top: 20px;
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .labels {
+    text-align: end;
+    color: $grey;
+
+    @include mobile {
+      text-align: start;
+    }
+  }
+
+  .actions_success {
+    display: flex;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 16px;
+    align-items: center;
+    justify-content: center;
+    grid-row-gap: 0px;
+  }
+
+  .labels_notification {
+    line-height: 38px;
+    font-weight: bold;
+
+    @include mobile {
+      font-size: 14px;
+    }
+  }
+
+  .upgrade_button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    @include mobile {
+      justify-content: end;
+    }
+
+    a {
+      color: $darkBlue2;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    img {
+      cursor: pointer;
+    }
+
+    .tooltip {
+      @include scale_up();
+      position: absolute;
+      background-color: $grey1;
+      padding: 8px;
+      border-radius: 4px;
+      width: 200px;
+      left: 100px;
+      top: -140px;
+    }
+  }
+}

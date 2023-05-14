@@ -1,0 +1,163 @@
+@import "~@project/libs/assets/styles/variables";
+@import "~@project/libs/assets/styles/mixins";
+
+.upgrade_card_container {
+  display: flex;
+  margin: auto;
+  padding: 24px 17px 40px 24px;
+  flex-direction: column;
+  width: 272px;
+  border-radius: 12px;
+  background-image: linear-gradient(29.32deg,
+      rgba(112, 128, 243, 0.1) -11.11%,
+      rgba(167, 195, 244, 0.1) 127.59%);
+
+  .upgrade_card_title {
+    font-family: $montserrat;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+    text-align: center;
+    color: $black;
+  }
+
+  .upgrade_description_part_1 {
+    margin: 32px auto 0;
+    margin-left: 15px;
+
+    .li {
+      font-family: $montserrat;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 24px;
+      color: $black;
+    }
+
+    .upgrade_description_li {
+      margin-bottom: 15px;
+    }
+  }
+
+  .upgrade_description_part_2 {
+    margin: 15px auto 24px;
+    margin-left: 15px;
+
+    .li {
+      font-family: $montserrat;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 24px;
+      color: $black;
+    }
+
+    .upgrade_description_li {
+      margin-bottom: 15px;
+    }
+  }
+
+  .go_button {
+    width: 210px;
+    margin: 0 auto;
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+}
+
+.success_modal {
+  @include scale_up();
+  min-width: 50%;
+  display: flex;
+
+  .success_content {
+    margin: auto;
+
+    .labels_notification {
+      text-align: center;
+      line-height: 50px;
+      color: rgb(25, 25, 39);
+      font-weight: bold;
+
+      @include mobile {
+        font-size: 14px;
+      }
+    }
+
+    .labels_container {
+      margin-bottom: 30px;
+
+      @include mobile {
+        font-size: 14px;
+      }
+    }
+
+    .button_container {
+      justify-content: space-around;
+      display: flex;
+      margin: auto;
+      width: 60%;
+      margin-top: 30px;
+      line-height: 10px;
+      font-weight: bold;
+
+      @include mobile {
+        font-size: 14px;
+      }
+
+      .button_style {
+        color: rgb(28, 28, 100);
+        border-color: rgb(29, 29, 64);
+      }
+
+      .button_style:hover {
+        color: rgb(241, 241, 245);
+        background-color: rgb(82, 82, 241);
+      }
+    }
+  }
+}
+
+.styles_gradient_background_layer {
+  flex: 1;
+  display: flex;
+  height: 100%;
+  background-color: $white;
+  border-radius: 5px;
+  color: $black;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex {
+  &:first-child {
+    width: 46px;
+  }
+
+  &:nth-child(2) {
+    width: 47px;
+  }
+
+  &:nth-child(3) {
+    width: 47px;
+  }
+
+  &:nth-child(4) {
+    width: 50px;
+  }
+
+  .time_component {
+    margin: 0 4;
+
+    .time_text {
+      font-size: 22px;
+    }
+
+    .desc_text {
+      font-size: 9px;
+    }
+  }
+}

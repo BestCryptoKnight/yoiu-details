@@ -1,0 +1,86 @@
+$transition-time: 0.1s;
+$notoSans: 'Noto Sans', sans-serif;
+$satoshi: Satoshi;
+$montserrat: Montserrat;
+$inter: Inter;
+$manrope: Manrope;
+
+$headerHeight: 80px;
+$footerHeight: 140px;
+$footerHeightMobile: 83px;
+$horizontalPaddingMobile: 14px;
+$horizontalPadding: 20px;
+$scrollbarWidth: 16px;
+$maxContentWidth: calc(1440px - (80px * 2));
+$maxContentWidth2: calc(1440px - (40px * 2));
+
+$cardWidth: 420px;
+
+$font-2xl: 48px;
+$font-xl: 32px;
+$font-lg: 24px;
+$font-md: 20px; 
+$font-sm: 16px;
+$font-xs: 14px;
+
+
+$spacing-2xl: 64px;
+$spacing-xl: 46px;
+$spacing-lg: 32px; 
+$spacing-md: 24px; 
+$spacing-sm: 16px;
+$spacing-xs: 8px;
+
+
+
+$font-bold: 700;
+$font-semi-bold: 600;
+$font-regular: 500;
+
+$blue: #6e8ef1;
+$blue1: #3879ee;
+$blue2: #5a85ec;
+$blue3: #6c97ff;
+$blue4: #78a7fc;
+$blue5: #a2e2f3ce;
+
+$darkBlue: #1e438a;
+$darkBlue2: #005bff;
+
+$lightBlue: #2899ff;
+$lightBlueOpacity: rgba(234, 238, 254, 0.6);
+
+$green: #3ac922;
+
+$white: white;
+$white1: #e5e5e5;
+$white2: #eef2fd;
+$white3: #f2f5fd;
+$white4: #ffffffce;
+
+$red: #ff0420;
+
+$purple: #7c3ecf;
+$purple1: #fb47b6;
+$purple2: #805eae;
+
+$pink: #fd83ce;
+
+$black: #020416;
+$black1: #000000;
+$black2: #000000a9;
+
+$grey: #6b7194;
+$grey1: #e5ebfc;
+
+$greyOpacity: rgba(228, 233, 241, 0.2);
+$whiteOpacity: rgba(255, 255, 255, 0.2);
+$BlueShadowOpacity: 0px 4px 18px 8px rgba(102, 140, 255, 0.3);
+$grayShadowOpacity: 0px 4px 18px 8px rgba(228, 233, 241, 0.4);
+$blackOpacity: rgba(2, 4, 22, 0.6);
+
+
+// spacing 
+$btnHeight1 : 80px;
+$btnHeight2 : 60px;
+$btnMobileHeight: 48px

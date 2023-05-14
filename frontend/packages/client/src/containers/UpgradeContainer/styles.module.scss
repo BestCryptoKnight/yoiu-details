@@ -1,0 +1,53 @@
+@import "~@project/libs/assets/styles/variables";
+@import "~@project/libs/assets/styles/mixins";
+
+.upgrade_container {
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: $spacing-2xl 0;
+  @include mobile {
+      padding: $spacing-xs 0;
+    }
+  .upgrade_content {
+    @include container();
+    margin: 0 auto;
+    width: 100%;
+
+    .upgrade_title {
+      margin-bottom: 20px;
+      margin-top: 100px;
+
+      @include mobile {
+        font-size: 24px;
+        line-height: 32px;
+        text-align: center;
+        margin-top: 40px;
+      }
+    }
+    .caption {
+      margin-bottom: 60px;
+      color: $grey;
+      @include mobile {
+            margin-bottom: $spacing-sm;
+            text-align: center;
+          }
+    }
+
+   
+
+    .upgrade_content_cards {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      @include mobile {
+        gap: 20px;
+      }
+    }
+  }
+}

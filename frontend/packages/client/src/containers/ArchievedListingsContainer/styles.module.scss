@@ -1,0 +1,57 @@
+@import "~@project/libs/assets/styles/variables";
+@import "~@project/libs/assets/styles/mixins";
+
+.listings_container {
+  padding-bottom: 60px;
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  align-self: center;
+  align-items: center;
+  @include desktop_xl {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  @include desktop1280 {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  @include mobile {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .listings_content {
+    @include container();
+
+    .listings_title {
+      text-align: center;
+      color: $black1;
+      @include desktop1280 {
+        text-align: center;
+      }
+      @include mobile {
+        font-size: 24px;
+        line-height: 32px;
+      }
+    }
+
+    .listings_cards_list {
+      margin-top: 50px;
+      align-self: center;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      width: 100%;
+      gap: 24px;
+      @include mobile {
+        margin-top: 32px;
+        gap: 20px;
+      }
+    }
+  }
+}

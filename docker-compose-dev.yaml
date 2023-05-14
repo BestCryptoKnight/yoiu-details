@@ -1,0 +1,29 @@
+services:
+  # local Mongodb service
+  mongodb:
+    volumes:
+      - mongodb:/data/db
+    command: mongod --quiet --logpath /dev/null
+    image: mongo:latest
+    ports:
+      - "27027:27017"
+
+  yoiu-backend:
+    build:
+      context: ./backend
+      dockerfile: ./Dockerfile.dev
+    working_dir: /backend
+    restart: unless-stopped
+    env_file: ./.env
+    ports:
+      - 3000:3000
+    volumes:
+      - ./backend:/backend
+    depends_on:
+      - mongodb
+
+networks:
+  default:
+    name: yoiu
+volumes:
+  mongodb:

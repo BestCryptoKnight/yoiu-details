@@ -1,0 +1,112 @@
+@import '~@project/libs/assets/styles/variables';
+@import '~@project/libs/assets/styles/mixins';
+
+$cardWidth: 407px;
+
+.listing_card_container {
+	max-width: $cardWidth;
+	width: 100%;
+
+	box-shadow: $grayShadowOpacity;
+      cursor : pointer;
+      
+	background-color: $white;
+
+	border-radius: 12px;
+
+	overflow: hidden;
+
+      @include transition();
+
+	.listing_card_image {
+		height: 284px;
+		width: 100%;
+		@include mobile {
+			height: 200px;
+			width: 100%;
+		}
+	}
+
+	.listing_card_text_container {
+		padding: 17px;
+		@include mobile {
+			.listing_card_image {
+				height: 250px;
+				width: 345px;
+			}
+			.listing_link {
+				font-size: 14px;
+			}
+
+			.listing_table_title {
+				font-size: 14px;
+			}
+			.listings_table {
+				row-gap: 11px;
+
+				.table_item {
+					.table_item_label {
+						font-size: 14px;
+					}
+				}
+			}
+		}
+		.listing_link {
+			color: $blue1;
+			font-weight: 600;
+		}
+
+		.listing_slogan {
+			height: max-content;
+			max-height: 64px;
+			margin-top: 8px;
+			color: $black;
+			font-size: 24px;
+			line-height: 32px;
+			font-weight: 600;
+			@include mobile {
+				line-height: 24px;
+				font-size: 16px;
+				:first-child {
+					height: 0;
+				}
+			}
+		}
+
+		.listing_table_title {
+			margin-top: 12px;
+			color: $black;
+			opacity: 0.6;
+			font-weight: 600;
+		}
+
+		.listings_table {
+			margin-top: 20px;
+			display: flex;
+			flex-direction: column;
+			row-gap: 12px;
+
+			.table_item {
+				display: flex;
+				justify-content: space-between;
+
+				.table_item_label {
+					color: $black;
+					opacity: 0.6;
+					font-weight: 600;
+				}
+
+				.table_item_value {
+					font-size: 24px;
+					font-weight: 700;
+					@include mobile {
+						font-size: 18px;
+					}
+				}
+			}
+		}
+	}
+}
+.listing_card_container:hover {
+      transform: translateY(-4px)
+}

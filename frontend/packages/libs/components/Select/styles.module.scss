@@ -1,0 +1,23 @@
+@import '@project/libs/assets/styles/variables';
+
+.select_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.select_container_title {
+  color: $white;
+  margin-bottom: 10px;
+}
+
+.date {
+ color: $white; 
+}
+
+
+.stake_until_container{
+  margin: 6px 0;
+}
+

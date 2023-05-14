@@ -1,0 +1,155 @@
+@import "./variables";
+
+$defaultFlexBoxAlign: center;
+$defaultFlexBoxJustify: center;
+
+@mixin flexbox($align: $defaultFlexBoxAlign, $justify: $defaultFlexBoxJustify) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin can_backdrop {
+  @supports (
+    (-webkit-backdrop-filter: blur(5px)) or (backdrop-filter: blur(5px))
+  ) {
+    @content;
+  }
+}
+
+@mixin blur($radius: 5px) {
+  -webkit-filter: blur($radius);
+  -moz-filter: blur($radius);
+  -o-filter: blur($radius);
+  -ms-filter: blur($radius);
+  filter: blur($radius);
+}
+
+@mixin hidden() {
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+}
+
+@mixin ellipsis($max-width) {
+  max-width: $max-width;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@keyframes appear {
+  from {
+    width: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+// Media request mixins MobileFirst
+@mixin small_mobile {
+  @media screen and (max-width: 414px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: 576px) {
+    @content;
+  }
+}
+ 
+@mixin small_tablet {
+  @media screen and (max-width: 675px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin small_desktop {
+  @media screen and (max-width: 912px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (max-width: 992px) {
+    @content;
+  }
+}
+
+@mixin desktop1280 {
+  @media screen and (max-width: 1281px) {
+    @content;
+  }
+}
+
+@mixin desktop_lg {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin desktop_xl {
+  @media screen and (max-width: 1400px) {
+    @content;
+  }
+}
+
+@mixin container {
+  max-width: $maxContentWidth;
+  padding: 0px 16px;
+  margin : auto
+}
+
+@mixin transition {
+  transition: all 150ms linear;
+}
+
+@mixin backdrop_blure {
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+}
+
+@mixin scale_up {
+  animation: scaleup 150ms cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  -webkit-animation: scaleup 150ms cubic-bezier(0.39, 0.575, 0.565, 1) both;
+
+  @keyframes scaleup {
+    from {
+      -webkit-transform: scale(0.5);
+      transform: scale(0.5);
+    }
+
+    to {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+}
+
+@mixin grow($height) {
+  animation-name: growup;
+  -webkit-animation-name: growup;
+  animation-duration: 550ms;
+  -webkit-animation-duration: 550ms;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+  overflow: hidden;
+
+  @keyframes growup {
+    from {
+      height: 0;
+    }
+    to {
+      height: $height;
+    }
+  }
+}

@@ -1,0 +1,107 @@
+@import './styles/variables';
+@import './styles/mixins';
+@import './styles/fonts';
+
+:root {
+  font-family: $montserrat;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+}
+
+html,
+body,
+div[id='root'] {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  border: 0;
+}
+
+body {
+  transition: color $transition-time, background-color $transition-time;
+  line-height: 140%;
+  font-size: 14px;
+  font-weight: 400;
+  scroll-behavior: smooth;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+ol {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 140%;
+  padding: 0;
+  color: $black;
+  letter-spacing: -0.02em;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: $black;
+}
+
+button {
+  box-shadow: none;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  color: inherit;
+}
+
+body.noScroll {
+  overflow-y: hidden;
+  padding-right: $scrollbarWidth;
+
+  @media (max-width: 600px) {
+    padding-right: 0;
+  }
+}
+
+body.scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 0;
+}
+
+[data-tippy-root] {
+  .tippy-box {
+    color: $black;
+    background-color: $white;
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: 0 0 10px 2px rgba(132, 132, 132, 0.2);
+  }
+
+  .tippy-arrow {
+    color: $white;
+  }
+}

@@ -1,0 +1,13 @@
+@import '@project/libs/assets/styles/mixins';
+
+.layout_wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  overflow: hidden;
+}
+
+.rigth_padding {
+  padding-right: 15px;
+}

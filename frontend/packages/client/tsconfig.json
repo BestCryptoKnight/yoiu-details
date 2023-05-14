@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": "./src",
+    "jsx": "react-jsx"
+  },
+  "include": [
+    "src/**/*",
+    "../libs/assets",
+    "../libs/types/reactotron.d.ts",
+    "../libs/types/global",
+  ]
+}

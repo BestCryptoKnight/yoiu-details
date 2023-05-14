@@ -1,0 +1,232 @@
+@import '~@project/libs/assets/styles/variables';
+@import '~@project/libs/assets/styles/mixins';
+
+$cardWidth: 600px;
+
+.listing_card_container {
+  max-width: $cardWidth;
+  width: 100%;
+  padding: $spacing-md;
+  box-shadow: 0px 4px 18px 8px $greyOpacity;
+  background-color: $white2;
+  border-radius: $spacing-sm;
+  overflow: hidden;
+  cursor: pointer;
+  @include transition();
+
+  @include mobile {
+    padding: $spacing-sm;
+    padding-bottom: 0;
+  }
+
+  .listing_header {
+    display: flex;
+    flex-direction: row;
+
+    .listing_image_container {
+      height: 78px;
+      width: 78px;
+      border-radius: 50%;
+      background-color: $white;
+      position: relative;
+
+      @include mobile {
+        height: 46px;
+        width: 46px;
+      }
+
+      .listing_card_image {
+        height: 78px;
+        width: 78px;
+      }
+
+      .listing_currency_icon {
+        position: absolute;
+        bottom: -7px;
+        right: -7px;
+        height: 36px;
+        width: 36px;
+      }
+
+      @include mobile {
+        .listing_card_image {
+          height: 46px;
+          width: 46px;
+        }
+
+        .listing_currency_icon {
+          position: absolute;
+          height: 20px;
+          width: 20px;
+          bottom: -7px;
+          right: -7px;
+        }
+      }
+    }
+
+    .listing_titles_container {
+      margin-left: 24px;
+      display: flex;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      @include mobile {
+        margin-left: 17px;
+      }
+
+      .listing_title {
+        font-size: 36px;
+        line-height: 44px;
+        font-weight: 700;
+      }
+
+      .listing_short_name {
+        font-size: 16px;
+        line-height: 24px;
+        opacity: 0.6;
+        font-weight: 600;
+      }
+
+      @include mobile {
+        .listing_title {
+          font-size: 20px;
+          line-height: 28px;
+        }
+
+        .listing_short_name {
+          font-size: 12px;
+          line-height: 20px;
+        }
+      }
+    }
+
+    .active_button {
+      max-width: 76px;
+      max-height: 32px;
+      border-radius: 4px;
+      font-size: 16px;
+      line-height: 24px;
+      background-color: $blue4;
+      cursor: auto;
+
+      @include mobile {
+        font-size: 14px;
+        width: 61px;
+      }
+
+      &:focus:enabled {
+        color: $white;
+      }
+    }
+
+    .active_badge {
+      background-color: "red";
+      width: "16px";
+      height: "16px";
+      margin-top: "8px";
+      margin-right: "10px";
+      border-radius: "20px";
+    }
+  }
+
+  .listing_description {
+    margin-top: 24px;
+    height: 68px;
+    font-size: 16px;
+    font-weight: 500;
+    overflow: hidden;
+
+    @include mobile {
+      height: 80px;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+  }
+
+  .table {
+    margin-top: $spacing-lg;
+    display: flex;
+    gap: $spacing-sm;
+    flex-direction: column;
+
+    @include mobile {
+      margin-top: $spacing-sm;
+      gap: 0;
+    }
+
+    .table_item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      .label {
+        opacity: 0.6;
+        line-height: 28px;
+        font-weight: 600;
+
+        @include mobile {
+          font-size: 14px;
+        }
+      }
+
+      .raise_value {
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: 700;
+
+        @include mobile {
+          font-size: 20px;
+          line-height: 24px;
+        }
+      }
+
+      .participants_value {
+        font-size: 20px;
+        line-height: 28px;
+        font-weight: 600;
+
+        @include mobile {
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+    }
+  }
+
+  .join_button {
+    margin: 16px 0 0 auto;
+    align-self: flex-end;
+    background-color: transparent;
+    width: max-content;
+    height: unset;
+
+    @include mobile {
+      margin: 0 0 0 auto;
+    }
+
+
+    .join_text {
+      margin-right: 8px;
+      font-size: 20px;
+      line-height: 40px;
+      font-weight: 600;
+
+      @include mobile {
+        font-size: 18px;
+        line-height: 24px;
+      }
+    }
+
+    img {
+      height: 24px;
+    }
+  }
+
+
+}
+
+.listing_card_container:hover {
+  transform: translateY(-4px);
+}

@@ -1,0 +1,130 @@
+@import "~@project/libs/assets/styles/variables";
+@import "~@project/libs/assets/styles/mixins";
+
+.welcome_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  background-image: url("~@project/libs/assets/images/welcomeBackgroundImage.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 30px;
+
+  .welcome_content {
+    /* margin-top: 79px; */
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    grid-template-areas: "left right";
+    grid-column-gap: 70px;
+    width: 100%;
+    padding-top: 30px;
+    @include container();
+
+    @include desktop1280 {
+      grid-template-columns: repeat(2, max-content);
+      grid-template-areas: "right" "left";
+      justify-content: center;
+      grid-column-gap: 0;
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      grid-template-areas: "right" "left";
+      grid-column-gap: 0;
+      padding-top: $spacing-md;
+    }
+
+    .welcome_left_part_text {
+      margin: auto;
+    }
+
+    .welcome_left_part {
+      grid-area: left;
+
+      max-width: 626px;
+
+      .welcome_title {
+        color: $white;
+      }
+
+      .welcome_subtitle {
+        margin-top: 30px;
+        color: $white;
+        font-weight: 600;
+      }
+
+      .welcome_description {
+        margin-top: 20px;
+        color: $white;
+      }
+
+      .welcome_join_button {
+        margin-top: 50px;
+      }
+
+      @include desktop1280 {
+        text-align: center;
+
+        .welcome_join_button {
+          margin: 50px auto 0;
+        }
+      }
+
+      @include mobile {
+        width: 100%;
+
+        .welcome_left_part_text {
+          max-width: 343px;
+        }
+
+        margin: $spacing-sm auto 0;
+
+        .welcome_title {
+          font-size: 24px;
+          line-height: 32px;
+        }
+
+        .welcome_subtitle {
+          margin-top: 16px;
+          font-size: 18px;
+        }
+
+        .welcome_description {
+          margin-top: 8px;
+          font-size: 16px;
+        }
+
+        .welcome_join_button {
+          width: 100%;
+          font-size: 14px;
+          height: 48px;
+          margin-top: 32px;
+
+          @include mobile {
+            margin-top: $spacing-sm;
+          }
+        }
+      }
+    }
+
+    .welcome_right_part {
+      grid-area: right;
+      max-width: 600px;
+      justify-self: center;
+
+      @include mobile {
+        max-width: 343px;
+      }
+
+      .cubes {
+        object-fit: cover;
+        width: 100%;
+
+      }
+    }
+  }
+}

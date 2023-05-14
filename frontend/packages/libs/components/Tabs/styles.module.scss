@@ -1,0 +1,40 @@
+@import '~@project/libs/assets/styles/variables';
+@import '~@project/libs/assets/styles/mixins';
+
+
+.tabs_container {
+  @include flexbox(initial, initial);
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+
+  .tabs_header {
+    width: 100%;
+
+    display: flex;
+
+    position: relative;
+
+    .tab_name_container {
+      @include flexbox();
+
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+
+      .tab_title {
+        color: $grey;
+        font-size: 24px;
+        transition: $transition-time;
+
+        @include mobile {
+          font-size: 20px;
+        }
+      }
+
+      .tab_title_active {
+        color: $black;
+      }
+    }
+  }
+}

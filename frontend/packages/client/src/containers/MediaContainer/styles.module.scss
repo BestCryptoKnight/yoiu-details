@@ -1,0 +1,64 @@
+@import "~@project/libs/assets/styles/variables";
+@import "~@project/libs/assets/styles/mixins";
+
+.media_container {
+  background-color: $white;
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  grid-template-areas: "alarm cube clip";
+  width: 100%;
+  @include container();
+  justify-content: center;
+  column-gap: 228px;
+  padding: 120px 0;
+  margin: 0 auto;
+
+  @include desktop_lg {
+    grid-template-columns: 1fr;
+    grid-template-areas: "alarm" "cube" "clip";
+    row-gap: 103px;
+  }
+
+  @include mobile {
+    row-gap: 45px;
+    padding: 40px 0px;
+  }
+
+  .media_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-sm;
+    cursor: pointer;
+
+    .title {
+      @include mobile {
+        font-size: 24px;
+        line-height: 32px;
+        text-align: center;
+      }
+    }
+
+    .icon {
+      width: 120px;
+      height: 120px;
+
+      @include mobile {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  }
+}
+
+.alarm {
+  grid-area: alarm;
+}
+
+.cube {
+  grid-area: cube;
+}
+
+.clip {
+  grid-area: clip;
+}

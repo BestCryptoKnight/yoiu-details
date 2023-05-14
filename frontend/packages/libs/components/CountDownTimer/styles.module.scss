@@ -1,0 +1,45 @@
+@import "~@project/libs/assets/styles/variables";
+@import "~@project/libs/assets/styles/mixins";
+
+.styles_gradient_background_layer {
+  flex: 1;
+  display: flex;
+  text-align: center;
+  height: 100%;
+  background-color: $white;
+  border-radius: 5px;
+  font-weight: 700;
+  color: rgb(33, 88, 124);
+  justify-content: center;
+  align-items: center;
+}
+
+.flex {
+  &:first-child {
+    width: 46px;
+  }
+
+  &:nth-child(2) {
+    width: 47px;
+  }
+
+  &:nth-child(3) {
+    width: 47px;
+  }
+
+  &:nth-child(4) {
+    width: 50px;
+  }
+
+  .time_component {
+    margin: 0 4;
+
+    .time_text {
+      font-size: 22px;
+    }
+
+    .desc_text {
+      font-size: 9px;
+    }
+  }
+}

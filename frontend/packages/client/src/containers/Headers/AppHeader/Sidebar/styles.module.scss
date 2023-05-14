@@ -1,0 +1,86 @@
+@import "~@project/libs/assets/styles/variables";
+@import "~@project/libs/assets/styles/mixins";
+
+
+.sidebar_container {
+      position: fixed;
+      top: 0;
+      left :0;
+      bottom: 0;
+      width: 100%;
+      z-index: 1000;
+      display : none;
+      @include transition();
+      @include mobile {
+            display : block
+      }
+.close_button {
+      color : $black;
+      position : absolute;
+      top : 8px;
+      right : 8px;
+}
+      .sidebar {
+            background-color: $white;
+            position: fixed;
+            top: 0;
+            left :0;
+            bottom: 0;
+            width : 80%;
+            height : 100%;
+            @include transition();
+            padding : $spacing-md
+      }
+      .sidebar_backdrop {
+            position: fixed;
+            top: 0;
+            left :0;
+            bottom: 0;
+            right : 0;
+            z-index: -1;
+            background-color: rgba(0,0,0,0.2);
+            @include transition();
+      }
+      .links {
+      
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap:  $spacing-md;
+      font-weight: 600;
+
+      a {
+      color: $grey;
+      width: unset!important;
+      height: unset!important;
+      @include transition();
+            &:hover {
+                  color: $darkBlue;
+            }
+      } 
+      }
+      .wallet_info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: $font-md;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: $spacing-md;
+            width: 100%;
+            img {
+                  width: $spacing-lg;
+                  margin-bottom: $spacing-sm;
+            }
+            .address {
+                  font-size: $font-xs;
+                  font-weight: $font-regular;
+            }
+      }
+      .connection_button {
+            margin-top: $spacing-md;
+            width: 100%;
+            color: $white!important;
+      }
+}

@@ -1,0 +1,29 @@
+@import "~@project/libs/assets/styles/variables";
+@import "~@project/libs/assets/styles/mixins";
+
+
+.project_page_conatiner {
+  display: flex;
+  flex-direction: column;
+}
+
+.loading_screen {
+  @include flexbox(center, center);
+  @include container();
+  min-height: calc(100vh - 126px);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+
+  svg {
+    margin-top: -146px;
+  }
+
+  @include mobile {
+    min-height: calc(100vh - 80px);
+
+    svg {
+      margin-top: -80px;
+    }
+  }
+}

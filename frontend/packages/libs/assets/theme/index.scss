@@ -1,0 +1,66 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+@import '../styles/fonts';
+
+
+
+// Texts 
+
+.text-2xl {
+  font-size: $font-2xl;
+  @include mobile{
+        font-size: $font-xl;
+  }
+}
+.text-xl {
+  font-size: $font-xl;
+  @include mobile{
+      font-size: $font-lg;
+}
+
+}
+.text-lg {
+  font-size: $font-lg;
+  @include mobile{
+      font-size: $font-md;
+}
+}
+
+.text-md {
+  font-size: $font-md;
+  @include mobile{
+      font-size: $font-sm;
+}
+
+}
+.text-sm {
+  font-size: $font-sm;
+  @include mobile{
+      font-size: $font-xs;
+}
+}
+
+.text-xs {
+  font-size: $font-xs;
+}
+
+
+.text-bold {
+  font-weight: $font-bold;
+}
+.text-semi-bold {
+  font-weight: $font-semi-bold;
+}
+.text-regular {
+  font-weight: $font-regular;
+}
+
+.text-black {
+  color: $black;
+}
+.text-white {
+  color: $white;
+}
+.text-gray {
+  color: $grey;
+}

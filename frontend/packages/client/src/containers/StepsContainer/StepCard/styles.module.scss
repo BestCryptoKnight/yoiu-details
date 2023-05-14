@@ -1,0 +1,44 @@
+@import '~@project/libs/assets/styles/variables';
+@import '~@project/libs/assets/styles/mixins';
+
+.step_card_container {
+	max-width: 280px;
+	width: 100%;
+	padding: 20px 0 68px;
+
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	@include mobile {
+		padding: $spacing-sm 0 $spacing-md;
+	}
+
+	.step_card_image {
+		height: 92px;
+		width: 92px;
+		@include mobile {
+			height: 83px;
+			width: 82px;
+		}
+	}
+
+	.step_title {
+		margin-top: 24px;
+		@include mobile {
+                  margin-top: 16px;
+			font-size: 24px;
+			line-height: 32px;
+		}
+	}
+
+	.step_description {
+		margin-top: 16px;
+		font-size: 16px;
+		line-height: 24px;
+		font-weight: 500;
+		opacity: 0.8;
+            @include mobile {
+                  margin-top: 8px;
+            }
+	}
+}

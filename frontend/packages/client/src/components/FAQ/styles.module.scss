@@ -1,0 +1,34 @@
+@import "~@project/libs/assets/styles/variables";
+@import "~@project/libs/assets/styles/mixins";
+
+
+.faq_container {
+      @include container();
+      width: 100%;
+}
+.faq_content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  a {
+      color : $blue;
+      margin-left: 4px
+  }
+  @include container();
+  width: 100%;
+  padding: $spacing-2xl 0!important;
+ 
+  @include mobile {
+      padding: $spacing-sm 0!important;
+
+  }
+  .faq_title {
+    margin-bottom: 36px;
+    @include mobile {
+      margin-bottom: 8px;
+      text-align: center;
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+}

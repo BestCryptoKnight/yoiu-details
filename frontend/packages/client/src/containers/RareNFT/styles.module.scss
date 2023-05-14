@@ -1,0 +1,122 @@
+@import "~@project/libs/assets/styles/variables";
+@import "~@project/libs/assets/styles/mixins";
+
+.rare_container {
+      padding: $spacing-2xl 0;
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  
+  .rare_description_header_title {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 48px;
+    margin-bottom: 16px;
+    @include mobile {
+      font-size: 20px;
+      line-height: 28px;
+    }
+  }
+  .rare_button {
+   /*  border-radius: 12px; */
+    background-color: #78a7fc;
+    color: $white;
+    width: 153px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    height: 48px;
+    margin: 16px 0px;
+    a {
+      text-decoration: none;
+      color: $white;
+    }
+    @include mobile {
+      width: 103px;
+      height: 32px;
+      font-size: 14px;
+      line-height: 24px;
+      border-radius: 4px;
+    }
+  }
+
+  .text {
+    font-size: 24px;
+    font-weight: 500;
+    color: $black;
+    @include mobile {
+      font-size: 16px;
+    }
+  }
+
+  a {
+    color: $darkBlue2;
+    font-weight: 600;
+  }
+
+  .rare_content {
+    @include container();
+    width: 100%;
+    margin: 0 auto;
+    .rare_title {
+      @include mobile {
+        text-align: center;
+        font-size: 24px;
+        line-height: 32px;
+      }
+    }
+    .rare_content_description {
+      display: flex;
+      flex-direction: row;
+      margin-top: 50px;
+      @include desktop1280 {
+        flex-wrap: wrap;
+      }
+      @media screen and (max-width: 768px) {
+        justify-content: center;
+      }
+      @include mobile {
+        margin-top: 24px;
+      }
+      .rare_image {
+        margin-right: 32px;
+        width: 726px;
+        height: 563px;
+        border-radius: 16px;
+        @include small_desktop {
+          margin-right: 0px;
+          width: 688px;
+          height: 534px;
+        }
+        @media screen and (max-width: 767px) {
+          width: 100%;
+          height: 434px;
+        }
+        @include mobile {
+          width: 343px;
+          height: 266px;
+        }
+      }
+      .rare_description_container {
+        max-width: 682px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        @include mobile {
+           gap : $spacing-lg
+          }
+        @include desktop1280 {
+          margin-top: 32px;
+        }
+
+        .rare_description_header_container {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,159 @@
+@import "~@project/libs/assets/styles/variables";
+@import "~@project/libs/assets/styles/mixins";
+
+.listing_card_container {
+  @include container();
+  width: 100%;
+  height: 120px;
+
+  display: grid;
+  grid-template-columns: 0.2fr 4.2fr 1fr;
+  grid-template-areas: "image label button";
+
+  @include desktop1280 {
+    grid-template-columns: max-content 1fr;
+    grid-template-areas:
+      "image label"
+      "button button";
+    height: 308px;
+    row-gap: 50px;
+    column-gap: 50px;
+  }
+  @include tablet {
+    height: 312px;
+    row-gap: 32px;
+    column-gap: 50px;
+  }
+
+  padding: 20px;
+
+  box-shadow: 0px 4px 18px 8px $greyOpacity;
+
+  background-color: $white3;
+  align-items: center;
+
+  border-radius: 16px;
+
+  gap: 20px;
+
+  overflow: hidden;
+
+  @include mobile {
+    padding: 16px;
+    column-gap: 0;
+    height: 310px;
+    row-gap: 32px;
+  }
+
+  .listing_image_container {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    background-color: $white;
+    position: relative;
+    grid-area: image;
+    align-self: flex-start;
+
+    .listing_card_image {
+      height: 100%;
+      width: 100%;
+    }
+    @include mobile {
+      height: 48px;
+      width: 48px;
+      margin-right: 16px;
+    }
+  }
+
+  .label_values_container {
+    display: grid;
+    grid-template-columns: 137px repeat(3, max-content) 212px;
+    grid-template-areas: "title participant price date progress";
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    grid-area: label;
+    flex-wrap: wrap;
+    @include desktop1280 {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas: "title participant price" "date progress progress";
+    }
+
+    @include mobile {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: "title participant" "date price" "progress progress";
+    }
+    .label_value_container {
+      display: flex;
+      flex-direction: column;
+
+      flex: 1;
+
+      .value {
+        font-size: 20px;
+        line-height: 28px;
+        font-weight: 600;
+        @include mobile {
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+
+      .label {
+        margin-top: 4px;
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 500;
+        opacity: 0.6;
+        @include mobile {
+          font-size: 12px;
+          line-height: 20px;
+        }
+      }
+    }
+
+    .title {
+      grid-area: title;
+    }
+    .participant {
+      grid-area: participant;
+    }
+    .price {
+      grid-area: price;
+    }
+    .date {
+      grid-area: date;
+    }
+  }
+
+  .progress_container {
+    margin-top: 0;
+    width: 100%;
+    max-width: 212px;
+    grid-area: progress;
+    @include desktop1280 {
+      max-width: 100%;
+    }
+  }
+
+  .progress_text {
+    font-weight: 700;
+  }
+
+  .progress_bar {
+    height: 4px;
+  }
+
+  .more_info_button {
+    justify-self: end;
+    margin-left: 30px;
+    width: 192px;
+    height: 60px;
+    grid-area: button;
+    @include mobile {
+      width: 100%;
+      height: 48px;
+    }
+  }
+}

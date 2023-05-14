@@ -1,0 +1,97 @@
+@import "~@project/libs/assets/styles/variables";
+@import "~@project/libs/assets/styles/mixins";
+
+.subscription_container {
+  width: 100%;
+  @include flexbox(center, center);
+  padding: 64px 0px;
+  background-color: $blue4;
+
+  
+
+  .subscription_content {
+    @include container();
+    @include flexbox(center, space-between);
+  }
+  @include mobile {
+        gap: 24px;
+        padding: 32px 0px;
+        .subscription_content {
+          @include container();
+          flex-direction: column;
+          gap : $spacing-lg;
+          align-items: center;
+          justify-content: center;
+        }
+    }
+
+
+  .subscription_left_part {
+    flex: 1;
+    .subscription_small_text {
+      font-size: $font-sm;
+      line-height: 24px;
+      color: $white;
+      @include mobile {
+        font-size: $font-xs;
+        line-height: 20px;
+        text-align: center;
+      }
+    }
+
+    .subscription_title {
+      margin-top: 16px;
+      font-weight: $font-bold;
+      color: $white;
+      @include mobile {
+        font-size: 24px;
+        line-height: 32px;
+        text-align: center;
+      }
+    }
+  }
+
+  .subscription_right_part {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    @include mobile {
+      width: 100%;
+      gap: 16px;
+      flex-direction: column;
+    }
+    .subscription_input {
+      .subscription_input_box {
+        @include mobile {
+          ::placeholder {
+            text-align: center;
+            font-size: 14px;
+            line-height: 24px;
+          }
+        }
+        @include mobile {
+          height: 48px;
+        }
+      }
+    }
+
+    .subscription_button {
+      padding: 0 36px;
+      height: 60px;
+      width: 164px;
+      color: $black;
+      font-size: 18px;
+      .check_icon {
+        width: 25px;
+        margin-bottom: -2px;
+        @include scale_up();
+      }
+      @include mobile {
+        width: 100%;
+        height: 48px;
+      }
+    }
+  }
+}

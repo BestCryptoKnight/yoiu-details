@@ -1,0 +1,107 @@
+@import "~@project/libs/assets/styles/variables";
+@import "~@project/libs/assets/styles/mixins";
+
+.grid_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .grid_content_wrapper {
+    padding: 48px 0px;
+    display: flex;
+    background-color: $white2;
+    width: 100%;
+    justify-content: center;
+
+    .grid_content {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-between;
+
+      @include desktop1280 {
+        justify-content: center;
+      }
+
+      width: 100%;
+      @include container();
+
+      .grid_text_part {
+        margin-top: 70px;
+
+        max-width: 700px;
+
+        @include desktop1280 {
+          text-align: center;
+        }
+
+        @include mobile {
+          .grid_title {
+            font-size: 24px;
+            line-height: 32px;
+          }
+
+          .grid_description {
+            font-size: 16px;
+          }
+        }
+
+        .grid_description {
+          margin-top: 20px;
+          font-size: 24px;
+          line-height: 36px;
+          font-weight: 500;
+
+          @include mobile {
+            font-size: 16px;
+            line-height: 24px;
+          }
+        }
+
+        .grid_button {
+          margin-top: 50px;
+          width: 260px;
+
+          @include desktop1280 {
+            margin: 50px auto 0;
+          }
+
+          @include mobile {
+            font-size: 14px;
+            height: 48px;
+            width: 100%;
+          }
+        }
+      }
+
+      .grid_text_part_smaller {
+        max-width: 600px;
+      }
+
+      .grid_image_part {
+        max-width: 600px;
+
+        @include mobile {
+          max-width: 343px;
+        }
+
+        display: flex;
+        align-items: center;
+
+        .image {
+          object-fit: cover;
+          width: 100%;
+        }
+      }
+    }
+
+    .grid_content_odd {
+      flex-direction: row-reverse;
+    }
+  }
+
+  .grid_content_wrapper_odd {
+    background-color: $white;
+  }
+}
