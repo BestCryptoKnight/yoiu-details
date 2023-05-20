@@ -31,7 +31,11 @@ type HeaderProps = {
 
 export const AppHeader = memo<HeaderProps>(({ isImageBlue, isProjectPage }) => {
   const dispatch = useDispatch();
-  const { address, name } = useSelector(selectKeplr);
+
+  // const { address, name } = useSelector(selectKeplr);
+  const name = (localStorage.getItem("user") as string)?.toString();
+  const address = (localStorage.getItem("wallet") as string)?.toString();
+  const viewingKey = (localStorage.getItem("secret") as string)?.toString();
   const [isOpen, onToggle] = useModal();
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState(false);
@@ -82,7 +86,7 @@ export const AppHeader = memo<HeaderProps>(({ isImageBlue, isProjectPage }) => {
 
         {isProjectPage && <div style={{ flex: 1 }} />}
 
-        {!address && (
+        {(!address || !viewingKey) && (
           <Button
             theme="secondary"
             className={styles.connect_button}
@@ -92,7 +96,7 @@ export const AppHeader = memo<HeaderProps>(({ isImageBlue, isProjectPage }) => {
           </Button>
         )}
 
-        {address && (
+        {(address && viewingKey) && (
           <div className={styles.disconnect_button_container}>
             <Button className={styles.dis_connect_button} onClick={onToggle}>
               <div className={styles.wallet_info}>

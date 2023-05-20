@@ -11,9 +11,9 @@ export const PAY_TOKEN_CONTRACT_ADDRESS =
 export const PAY_TOKEN_CONTRACT_HASH =
   "4281432c8c948dab8857bbcecd396fcdf362b7fc115347efe69a590c740faca4";
 export const IDO_CONTRACT_ADDRESS =
-  "secret18sxuehukjpchq4umd63mzpcwrx0hsy6pcdgtre";
+  "secret1q6jpkw8h2syzwu6wwa6cdj9tsygd7gxpr6ulme";
 export const IDO_CONTRACT_HASH =
-  "ba6740a5b63a2ac5f785f822a855390e0b2af447ad6943e6ba0d89ae78db4548";
+  "218ba8396be920bf07fbd419ce88bfebd91fb8dab5f8e3c8f7e4e19c362499dd";
 export const NFT_CONTRACT_ADDRESS =
   "secret1tvse5flddwsz4myc77szdu0ugxjwpmufh06s6y";
 export const NFT_CONTRACT_HASH =
