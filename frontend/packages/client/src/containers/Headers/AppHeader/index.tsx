@@ -34,8 +34,6 @@ export const AppHeader = memo<HeaderProps>(({ isImageBlue, isProjectPage }) => {
   const viewingKey = (localStorage.getItem("secret") as string)?.toString();
 
   const { address, name } = useSelector(selectKeplr);
-  // const [name, setName] = useState(_name);
-  // const [address, setAddress] = useState(_address);
 
   useEffect(() => {
     (async () => {
@@ -44,7 +42,6 @@ export const AppHeader = memo<HeaderProps>(({ isImageBlue, isProjectPage }) => {
       //   window.keplr.getOfflineSignerOnlyAmino(CHAIN_ID);
       const { name } = await window.keplr.getKey(CHAIN_ID);
       // const [{ address }] = await keplrOfflineSigner.getAccounts();
-      console.log("name", { name });
     })();
   }, []);
 
@@ -113,6 +110,9 @@ export const AppHeader = memo<HeaderProps>(({ isImageBlue, isProjectPage }) => {
 
         {address && viewingKey && (
           <div className={styles.disconnect_button_container}>
+            <a className={styles.dashboard_link} href={PathName.user}>
+              Dashboard
+            </a>
             <Button className={styles.dis_connect_button} onClick={onToggle}>
               <div className={styles.wallet_info}>
                 <span>{name}</span>
