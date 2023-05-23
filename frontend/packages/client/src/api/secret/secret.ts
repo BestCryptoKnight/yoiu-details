@@ -56,7 +56,7 @@ async function secretJsKeplr() {
     walletAddress: myAddress,
     encryptionUtils: window.keplr.getEnigmaUtils(CHAIN_ID),
   });
-  localStorage.setItem("wallet", myAddress);
+  // localStorage.setItem("wallet", myAddress);
   return { ...secretjs, name };
 }
 

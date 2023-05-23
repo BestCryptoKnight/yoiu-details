@@ -1,12 +1,13 @@
 import React, { memo, useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { CHAIN_ID } from "global/chaindId";
 
 import { PathName, strings } from "global";
 import { keplrConnect, keplrDisconnect } from "store/keplr/actionCreators";
 import { shortenPhrase } from "utils";
 import { useModal } from "hooks";
+import { selectKeplr } from "store/keplr/selectors";
 
 import {
   arrowIcon,
@@ -30,27 +31,20 @@ type HeaderProps = {
 
 export const AppHeader = memo<HeaderProps>(({ isImageBlue, isProjectPage }) => {
   const dispatch = useDispatch();
-  
-  // const { address, name } = useSelector(selectKeplr);
-  const _name = (localStorage.getItem("user") as string)?.toString();
-  const _address = (localStorage.getItem("wallet") as string)?.toString();
   const viewingKey = (localStorage.getItem("secret") as string)?.toString();
-  
-  const [name, setName] = useState(_name);
-  const [address, setAddress] = useState(_address);
+
+  const { address, name } = useSelector(selectKeplr);
+  // const [name, setName] = useState(_name);
+  // const [address, setAddress] = useState(_address);
 
   useEffect(() => {
     (async () => {
       await window.keplr.enable(CHAIN_ID);
-      const keplrOfflineSigner =
-        window.keplr.getOfflineSignerOnlyAmino(CHAIN_ID);
+      // const keplrOfflineSigner =
+      //   window.keplr.getOfflineSignerOnlyAmino(CHAIN_ID);
       const { name } = await window.keplr.getKey(CHAIN_ID);
-      const [{ address }] = await keplrOfflineSigner.getAccounts();
-      console.log({name})
-      if (!_name || !_address || !viewingKey || _address != address) {
-        setName(name);
-        setAddress(address);
-      }
+      // const [{ address }] = await keplrOfflineSigner.getAccounts();
+      console.log("name", { name });
     })();
   }, []);
 
@@ -68,8 +62,8 @@ export const AppHeader = memo<HeaderProps>(({ isImageBlue, isProjectPage }) => {
     }
     await secret.setViewingKey();
     localStorage.setItem("user", name);
-    console.log("nnn", name)
-    localStorage.setItem("wallet", address);
+    console.log("name", name);
+    // localStorage.setItem("wallet", address);
     dispatch(keplrConnect());
     setLoading(false);
   }, [dispatch]);
@@ -117,7 +111,7 @@ export const AppHeader = memo<HeaderProps>(({ isImageBlue, isProjectPage }) => {
           </Button>
         )}
 
-        {(address && viewingKey) && (
+        {address && viewingKey && (
           <div className={styles.disconnect_button_container}>
             <Button className={styles.dis_connect_button} onClick={onToggle}>
               <div className={styles.wallet_info}>
