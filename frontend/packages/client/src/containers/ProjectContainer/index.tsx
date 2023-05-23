@@ -30,7 +30,7 @@ export const ProjectContainer = memo((props: Props) => {
   const [isSuccessOpen, onSuccessToggle] = useModal();
   const [isFailureOpen, onFailureToggle] = useModal();
   const [isJoinOpen, onJoinToggle] = useModal();
-  const { address } = useSelector(selectKeplr);
+  const { address, name } = useSelector(selectKeplr);
   const dispatch = useDispatch();
 
   const isIdoStarted = useMemo(
@@ -52,6 +52,8 @@ export const ProjectContainer = memo((props: Props) => {
         return;
       }
       await secret.setViewingKey();
+      localStorage.setItem("user", name);
+      localStorage.setItem("wallet", address);
       dispatch(keplrConnect());
     }
   }, [onJoinToggle, address]);

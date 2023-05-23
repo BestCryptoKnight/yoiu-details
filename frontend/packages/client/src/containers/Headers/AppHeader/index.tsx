@@ -1,10 +1,9 @@
 import React, { memo, useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { connectWalletApi, isAdminApi, loginAdminApi } from "api/wallet";
+import { useDispatch } from "react-redux";
+import { CHAIN_ID } from "global/chaindId";
 
 import { PathName, strings } from "global";
-import { selectKeplr } from "store/keplr/selectors";
 import { keplrConnect, keplrDisconnect } from "store/keplr/actionCreators";
 import { shortenPhrase } from "utils";
 import { useModal } from "hooks";
@@ -31,11 +30,30 @@ type HeaderProps = {
 
 export const AppHeader = memo<HeaderProps>(({ isImageBlue, isProjectPage }) => {
   const dispatch = useDispatch();
-
+  
   // const { address, name } = useSelector(selectKeplr);
-  const name = (localStorage.getItem("user") as string)?.toString();
-  const address = (localStorage.getItem("wallet") as string)?.toString();
+  const _name = (localStorage.getItem("user") as string)?.toString();
+  const _address = (localStorage.getItem("wallet") as string)?.toString();
   const viewingKey = (localStorage.getItem("secret") as string)?.toString();
+  
+  const [name, setName] = useState(_name);
+  const [address, setAddress] = useState(_address);
+
+  useEffect(() => {
+    (async () => {
+      await window.keplr.enable(CHAIN_ID);
+      const keplrOfflineSigner =
+        window.keplr.getOfflineSignerOnlyAmino(CHAIN_ID);
+      const { name } = await window.keplr.getKey(CHAIN_ID);
+      const [{ address }] = await keplrOfflineSigner.getAccounts();
+      console.log({name})
+      if (!_name || !_address || !viewingKey || _address != address) {
+        setName(name);
+        setAddress(address);
+      }
+    })();
+  }, []);
+
   const [isOpen, onToggle] = useModal();
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState(false);
@@ -49,6 +67,9 @@ export const AppHeader = memo<HeaderProps>(({ isImageBlue, isProjectPage }) => {
       return;
     }
     await secret.setViewingKey();
+    localStorage.setItem("user", name);
+    console.log("nnn", name)
+    localStorage.setItem("wallet", address);
     dispatch(keplrConnect());
     setLoading(false);
   }, [dispatch]);

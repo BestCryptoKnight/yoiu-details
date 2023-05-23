@@ -1,7 +1,7 @@
 import { Project } from "types";
 
-import React, { memo, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { memo, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getAllUserInfo, getTier, invest, usdRate } from "api/secret/secret";
 import { toast } from "react-toastify";
 
@@ -31,7 +31,6 @@ export const JoinModal = memo<Props>(
     const [isTooltipOpen, setIsTooltipOpen] = useState<boolean>(false);
     const [tier, setTier] = useState<string | number>("----");
     const [maxDeposit, setMaxDeposit] = useState<string | number>("---");
-    const params = useParams();
     const [loading, setLoading] = useState(false);
 
     const usdPerTier = [0, 25000, 7500, 1500, 250, 5];
@@ -43,21 +42,22 @@ export const JoinModal = memo<Props>(
         (async () => {
           setLoading(true);
           const { tier } = await getTier();
+          console.log({tier});
           const result = await getAllUserInfo();
+          console.log({result})
           const rate = await usdRate();
-          const id = params.projectId;
 
-          if (result && id) {
+          if (result) {
             const depositAmount =
-              Number(result[Number(id)][0].total_payment) / Math.pow(10, 6);
+              Number(result[0][0].total_payment) / Math.pow(10, 6);
             const remaining =
               Math.ceil((usdPerTier[Number(tier)] * Math.pow(10, 18)) / rate) -
               depositAmount;
             const totalRemaining =
               Number(
-                result[Number(id)][1].remaining_per_tiers[Number(tier) - 1]
+                result[0][1].remaining_per_tiers[Number(tier) - 1]
               ) /
-              (Math.pow(10, 6) * Number(result[Number(id)][1].price));
+              (Math.pow(10, 6) * Number(result[0][1].price));
             const maxDeposit = Math.min(
               remaining > 0 ? remaining : 0,
               totalRemaining

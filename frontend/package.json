@@ -26,7 +26,7 @@
   "scripts": {
     "lint": "yarn eslint . --cache --fix --ext js,jsx,ts,tsx && :",
     "tsc": "yarn lerna run tsc && :",
-    "start:client": "set PORT=3001 && yarn lerna run start:client",
+    "start:client": "set PORT=3002 && yarn lerna run start:client",
     "build:client": "yarn lerna run build:client",
     "prepare": "cd .. && husky install frontend/.husky",
     "pre-commit": "yarn lint && yarn tsc --noEmit"

@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-const storage = localStorage.getItem("user");
+const storage = localStorage.getItem("userToken");
 const user = storage ? JSON.parse(storage) : {};
 export const api: AxiosInstance = axios.create({
   // baseURL: "http://localhost:3000",
