@@ -94,7 +94,7 @@ export const TokenEconomicsContainer = memo<Props>((props: Props) => {
             </Text>
             <Text type="p" className={styles.description}>
               {/* {project.contractAddress} */}
-              100% at TGE
+              100% at TGE, Token Frozen Until - T5-2: 12 hours, T1: 0 hours after End Date
             </Text>
           </div>
         </div>
