@@ -117,7 +117,7 @@ export const ProjectCard = memo<ProjectCardProps>((props: ProjectCardProps) => {
             {strings.swapPrice}
           </Text>
           <Text className={styles.swap_price} type="h3">
-            1 SCRT = 33 FINA Tokens
+            1 SCRT = {price} {shortName}
           </Text>
         </div>
 
@@ -135,7 +135,7 @@ export const ProjectCard = memo<ProjectCardProps>((props: ProjectCardProps) => {
             Token Frozen Until
           </Text>
           <Text className={styles.swap_price} type="h3">
-            12/24 hours after IDO ends
+            T5-2: 12h. T1 Immediately
           </Text>
         </div>
 

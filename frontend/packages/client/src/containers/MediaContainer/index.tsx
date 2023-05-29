@@ -49,12 +49,12 @@ export const MediaContainer = memo<Props>((props: Props) => {
   return (
     <div className={styles.media_container}>
       {icons.map(({ iconUrl, title, className, url }) => (
-        <div className={cx(styles.media_card, className)} key={title}>
+        <a href={`${url}`} className={cx(styles.media_card, className)} key={title}>
           <Image url={iconUrl} className={styles.icon} />
           <Text type="h2" className={styles.title}>
             {title}
           </Text>
-        </div>
+        </a>
       ))}
     </div>
   );
