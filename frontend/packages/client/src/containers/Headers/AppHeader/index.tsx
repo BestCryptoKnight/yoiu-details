@@ -111,7 +111,7 @@ export const AppHeader = memo<HeaderProps>(({ isImageBlue, isProjectPage }) => {
         {address && viewingKey && (
           <div className={styles.disconnect_button_container}>
             <a className={styles.dashboard_link} href={PathName.user}>
-              Dashboard
+              Listings
             </a>
             <Button className={styles.dis_connect_button} onClick={onToggle}>
               <div className={styles.wallet_info}>
