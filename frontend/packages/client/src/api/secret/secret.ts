@@ -41,10 +41,10 @@ async function secretJsKeplr() {
 
   await window.keplr.enable(CHAIN_ID);
 
-  const keplrOfflineSigner =
-    window.keplr.getOfflineSignerOnlyAmino(CHAIN_ID);
+  const keplrOfflineSigner = window.keplr.getOfflineSignerOnlyAmino(CHAIN_ID);
 
   const { name } = await window.keplr.getKey(CHAIN_ID);
+  localStorage.setItem("user", name);
   const [{ address: myAddress }] = await keplrOfflineSigner.getAccounts();
 
   // eslint-disable-next-line
@@ -56,7 +56,7 @@ async function secretJsKeplr() {
     walletAddress: myAddress,
     encryptionUtils: window.keplr.getEnigmaUtils(CHAIN_ID),
   });
-  // localStorage.setItem("wallet", myAddress);
+  localStorage.setItem("wallet", myAddress);
   return { ...secretjs, name };
 }
 
@@ -95,24 +95,28 @@ async function usdRate() {
 }
 
 async function setViewingKey() {
-  const secretjs = (await secretJsKeplr()) as any;
-  const secrekey = await SECRET_KEY();
-  const setViewingKey: any = await secretjs.tx.compute.executeContract(
-    {
-      contract_address: NFT_CONTRACT_ADDRESS,
-      code_hash: NFT_CONTRACT_HASH,
-      sender: secretjs.address,
-      msg: {
-        set_viewing_key: {
-          key: secrekey,
+  try {
+    const secretjs = (await secretJsKeplr()) as any;
+    const secrekey = await SECRET_KEY();
+    const setViewingKey: any = await secretjs.tx.compute.executeContract(
+      {
+        contract_address: NFT_CONTRACT_ADDRESS,
+        code_hash: NFT_CONTRACT_HASH,
+        sender: secretjs.address,
+        msg: {
+          set_viewing_key: {
+            key: secrekey,
+          },
         },
       },
-    },
-    {
-      gasLimit: 70_000,
-    }
-  );
-  return setViewingKey.code == 0;;
+      {
+        gasLimit: 70_000,
+      }
+    );
+    return setViewingKey.code == 0;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 async function deposit(value: number) {
@@ -221,6 +225,7 @@ async function getTier() {
   try {
     const secretjs = await secretJsKeplr();
     const secrekey = await SECRET_KEY();
+
     const getTier: any = await secretjs.query.compute.queryContract({
       contract_address: IDO_CONTRACT_ADDRESS,
       code_hash: IDO_CONTRACT_HASH,
@@ -403,6 +408,7 @@ async function invest(amount: number) {
     const secretjs = await secretJsKeplr();
     const rate = await getIDOInfo();
     const secrekey = await SECRET_KEY();
+
     const buyToken: any = await secretjs.tx.compute.executeContract(
       {
         contract_address: IDO_CONTRACT_ADDRESS,
