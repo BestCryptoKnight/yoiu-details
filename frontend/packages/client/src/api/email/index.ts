@@ -3,6 +3,7 @@ import axios, { AxiosInstance } from "axios";
 // const baseUrl = process.env.REACT_APP_API_URL;
 
 const api: AxiosInstance = axios.create({
+  baseURL: "https://app.yoiu.io",
   headers: {
     "content-type": "application/json",
   },
