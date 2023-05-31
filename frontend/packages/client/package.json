@@ -2,6 +2,7 @@
   "name": "@project/client",
   "version": "0.0.1",
   "private": true,
+  "proxy": "https://app.yoiu.io",
   "scripts": {
     "start:client": "env-cmd -f .env.development react-app-rewired start",
     "build:client": "env-cmd -f .env.development react-app-rewired build",

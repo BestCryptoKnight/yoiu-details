@@ -2,6 +2,7 @@
   "name": "project",
   "version": "0.0.1",
   "private": true,
+  "proxy": "https://app.yoiu.io",
   "workspaces": [
     "packages/*"
   ],
