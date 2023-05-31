@@ -31,7 +31,7 @@ export const NotifyMeContainer = memo((props: Props) => {
     try {
       setIsLoading(true);
       const result = await subscribeToProject(email, "FINA");
-      if (!result.data) {
+      if (!result?.data) {
         toast.error("Too many requests, please try again after 5 minutes");
       } else {
         setVerificationEmailSent(true);
