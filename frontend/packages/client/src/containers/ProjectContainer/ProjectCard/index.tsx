@@ -149,7 +149,7 @@ export const ProjectCard = memo<ProjectCardProps>((props: ProjectCardProps) => {
         </div>
 
         <div className={styles.smart_contract_address}>
-          <Text type="h3">Smart contract address</Text>
+          <Text type="h3">Token contract address</Text>
           <Text type="p">{contractAddress}</Text>
         </div>
       </div>

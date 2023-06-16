@@ -37,7 +37,6 @@ export const ProjectContainer = memo((props: Props) => {
     () => project.statsAt < new Date().getTime() / 1000,
     [project.statsAt]
   );
-
   const isIdoEnded = useMemo(
     () => project.end_time < new Date().getTime() / 1000,
     [project.end_time]
@@ -94,6 +93,16 @@ export const ProjectContainer = memo((props: Props) => {
                   : "Join in " + formatTimeStampToMonthAndYear(project.statsAt)
                 : "Connect"}
             </Button>
+            <div>
+              <Text type="h3" className={styles.project_description}>
+                <span style={{"fontWeight": 800}}>
+                  1 Round of 3 IDO Rounds<br/>
+                </span>
+                After each Round there will be 20-25% Price increase.<br />
+                Round 2 - Starts in July<br />
+                Round 3 - Starts in August
+              </Text>
+            </div>
           </div>
         </div>
       </div>
