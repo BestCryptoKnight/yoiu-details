@@ -52,7 +52,6 @@ export const ProjectCard = memo<ProjectCardProps>((props: ProjectCardProps) => {
     buttonActive,
     contractAddress,
   } = props.project;
-  console.log(props.project);
 
   return (
     <div className={styles.project_card_container}>
@@ -74,23 +73,27 @@ export const ProjectCard = memo<ProjectCardProps>((props: ProjectCardProps) => {
         </div>
         {!button && <div className={styles.active_badge} />}
         <Button
-          disabled={!button}
+          disabled={false}
           theme={buttonTheme}
           className={styles.active_button}
         >
-          {buttonActive}
+          {/* {buttonActive} */}
+          Soon
         </Button>
       </div>
 
       <ProgressWithLabels
-        softcap={softcap}
-        progress={progress}
-        label={`Ends in ${formatTimeStampToMonthAndYear(end_time)}`}
+        softcap={0}
+        progress={0}
+        label='Starts in TBA'
       />
 
-      <Text type="h4">
+      {/* <Text type="h4">
         <span className={styles.funded}>{totalRize}</span> of {targetAmount}{" "}
         {strings.funded}
+      </Text> */}
+      <Text type="h4">
+        <span className={styles.funded}>0 SCRT </span> of X SCRT funded
       </Text>
 
       <div className={styles.table}>
@@ -99,7 +102,7 @@ export const ProjectCard = memo<ProjectCardProps>((props: ProjectCardProps) => {
             {strings.targetAmount}
           </Text>
           <Text className={styles.amount} type="h3">
-            {targetAmount}
+            TBA
           </Text>
         </div>
 
@@ -108,7 +111,7 @@ export const ProjectCard = memo<ProjectCardProps>((props: ProjectCardProps) => {
             {strings.participants}
           </Text>
           <Text className={styles.swap_price} type="h3">
-            {participants}
+            0
           </Text>
         </div>
 
@@ -117,7 +120,7 @@ export const ProjectCard = memo<ProjectCardProps>((props: ProjectCardProps) => {
             {strings.swapPrice}
           </Text>
           <Text className={styles.swap_price} type="h3">
-            1 SCRT = {price} {shortName}
+            TBA
           </Text>
         </div>
 
@@ -135,7 +138,7 @@ export const ProjectCard = memo<ProjectCardProps>((props: ProjectCardProps) => {
             Token Frozen Until
           </Text>
           <Text className={styles.swap_price} type="h3">
-            T5-2: 12h. T1 Immediately
+            12/24 hours after IDO ends
           </Text>
         </div>
 
@@ -144,13 +147,12 @@ export const ProjectCard = memo<ProjectCardProps>((props: ProjectCardProps) => {
             Softcap
           </Text>
           <Text className={styles.swap_price} type="h3">
-            {`${softcap}%`}
+            TBA
           </Text>
         </div>
 
         <div className={styles.smart_contract_address}>
           <Text type="h3">Token contract address</Text>
-          <Text type="p">{contractAddress}</Text>
         </div>
       </div>
     </div>

@@ -31,7 +31,6 @@ export const getFile = () => {
 };
 
 export const isAdminApi = async (wallet: string) => {
-  console.log('call is admin api');
   return await api.post("/api/is-admin", {
     wallet,
   });

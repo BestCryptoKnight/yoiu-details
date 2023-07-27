@@ -31,7 +31,7 @@ type HeaderProps = {
 
 export const AppHeader = memo<HeaderProps>(({ isImageBlue, isProjectPage }) => {
   const dispatch = useDispatch();
-  const viewingKey = (localStorage.getItem("secret") as string)?.toString();
+  // const viewingKey = (localStorage.getItem("secret") as string)?.toString();
 
   const { address, name } = useSelector(selectKeplr);
 
@@ -40,8 +40,8 @@ export const AppHeader = memo<HeaderProps>(({ isImageBlue, isProjectPage }) => {
       await window.keplr.enable(CHAIN_ID);
       // const keplrOfflineSigner =
       //   window.keplr.getOfflineSignerOnlyAmino(CHAIN_ID);
-      const { name } = await window.keplr.getKey(CHAIN_ID);
-      // const [{ address }] = await keplrOfflineSigner.getAccounts();
+      // const { name } = await window.keplr.getKey(CHAIN_ID);
+      // const { address } = await keplrOfflineSigner.getAccounts();
     })();
   }, []);
 
@@ -98,7 +98,7 @@ export const AppHeader = memo<HeaderProps>(({ isImageBlue, isProjectPage }) => {
 
         {isProjectPage && <div style={{ flex: 1 }} />}
 
-        {(!address || !viewingKey) && (
+        {(!address) && (
           <Button
             theme="secondary"
             className={styles.connect_button}
@@ -108,7 +108,7 @@ export const AppHeader = memo<HeaderProps>(({ isImageBlue, isProjectPage }) => {
           </Button>
         )}
 
-        {address && viewingKey && (
+        {address && (
           <div className={styles.disconnect_button_container}>
             <a className={styles.dashboard_link} href={PathName.user}>
               Listings

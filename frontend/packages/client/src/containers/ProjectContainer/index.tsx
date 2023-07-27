@@ -14,6 +14,7 @@ import { JoinModal } from "./JoinModal";
 import { SuccessParticipationModal } from "./SuccessParticipationModal";
 import { ProjectCard } from "./ProjectCard";
 import { FailureModal } from "./FailureModal";
+import { GoogleFormModal } from "./GoogleFormModal";
 import * as secret from "api/secret/secret";
 
 import styles from "./styles.module.scss";
@@ -28,6 +29,7 @@ export const ProjectContainer = memo((props: Props) => {
   const { project } = props;
   const [value, setValue] = useState(0);
   const [isSuccessOpen, onSuccessToggle] = useModal();
+  const [isGoogleFormOpen, OnGoogleFormToggle] = useModal();
   const [isFailureOpen, onFailureToggle] = useModal();
   const [isJoinOpen, onJoinToggle] = useModal();
   const { address, name } = useSelector(selectKeplr);
@@ -42,20 +44,23 @@ export const ProjectContainer = memo((props: Props) => {
     [project.end_time]
   );
 
+  // const join = useCallback(async () => {
+  //   if (address) onJoinToggle();
+  //   else {
+  //     const balance = await secret.balance();
+  //     if (balance < 70000) {
+  //       toast.error("Please ensure that your balance is over 0.1 SCRT");
+  //       return;
+  //     }
+  //     await secret.setViewingKey();
+  //     localStorage.setItem("user", name);
+  //     localStorage.setItem("wallet", address);
+  //     dispatch(keplrConnect());
+  //   }
+  // }, [onJoinToggle, address]);
   const join = useCallback(async () => {
-    if (address) onJoinToggle();
-    else {
-      const balance = await secret.balance();
-      if (balance < 70000) {
-        toast.error("Please ensure that your balance is over 0.1 SCRT");
-        return;
-      }
-      await secret.setViewingKey();
-      localStorage.setItem("user", name);
-      localStorage.setItem("wallet", address);
-      dispatch(keplrConnect());
-    }
-  }, [onJoinToggle, address]);
+    OnGoogleFormToggle();
+  }, [OnGoogleFormToggle]);
 
   const onSuccessDeposit = (amount: number) => {
     setValue(amount);
@@ -80,20 +85,21 @@ export const ProjectContainer = memo((props: Props) => {
             </div>
             <Button
               theme="secondary"
-              disabled={!isIdoStarted || isIdoEnded}
+              disabled={false}
               className={styles.join_button}
               onClick={join}
             >
-              {address
+              {/* {address
                 ? isIdoEnded
                   ? "Ended in " +
                     formatTimeStampToMonthAndYear(project.end_time)
                   : isIdoStarted
                   ? "Join Now"
                   : "Join in " + formatTimeStampToMonthAndYear(project.statsAt)
-                : "Connect"}
+                : "Connect"} */}
+                Pre-Register here!
             </Button>
-            <div>
+            {/* <div>
               <Text type="h3" className={styles.project_description}>
                 <span style={{"fontWeight": 800}}>
                   1 Round of 3 IDO Rounds<br/>
@@ -102,7 +108,7 @@ export const ProjectContainer = memo((props: Props) => {
                 Round 2 - Starts in July<br />
                 Round 3 - Starts in August
               </Text>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -117,6 +123,10 @@ export const ProjectContainer = memo((props: Props) => {
         amount={value}
         isOpen={isSuccessOpen}
         onClose={onSuccessToggle}
+      />
+      <GoogleFormModal
+        isOpen={isGoogleFormOpen}
+        onClose={OnGoogleFormToggle}
       />
       <FailureModal isOpen={isFailureOpen} onClose={onFailureToggle} />
     </div>

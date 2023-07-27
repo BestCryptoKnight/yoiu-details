@@ -61,7 +61,6 @@ export const CreatePage = () => {
       return getFile();
     }).then((files) => {
       setLoading(false);
-      console.log({files})
       // const base64string = btoa(String.fromCharCode(...new Uint8Array(files.data.data)))
       state ?
       setLandingImage(files.data)

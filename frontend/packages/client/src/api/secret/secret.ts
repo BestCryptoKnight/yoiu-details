@@ -97,7 +97,6 @@ async function usdRate() {
 async function setViewingKey() {
   try {
     const secretjs = (await secretJsKeplr()) as any;
-    const secrekey = await SECRET_KEY();
     const setViewingKey: any = await secretjs.tx.compute.executeContract(
       {
         contract_address: NFT_CONTRACT_ADDRESS,
@@ -105,7 +104,7 @@ async function setViewingKey() {
         sender: secretjs.address,
         msg: {
           set_viewing_key: {
-            key: secrekey,
+            key: SECRET_KEY,
           },
         },
       },
@@ -137,7 +136,7 @@ async function deposit(value: number) {
         ],
       },
       {
-        gasLimit: 300_000,
+        gasLimit: 500_000,
       }
     );
     if (depositUsd.code !== 0) toast.error(depositUsd.rawLog);
@@ -161,7 +160,7 @@ async function withdraw() {
         },
       },
       {
-        gasLimit: 300_000,
+        gasLimit: 500_000,
       }
     );
     if (withdraw.code !== 0) toast.error(withdraw.rawLog);
@@ -185,7 +184,7 @@ async function claim() {
         },
       },
       {
-        gasLimit: 300_000,
+        gasLimit: 500_000,
       }
     );
     return claim.code == 0;
@@ -210,7 +209,7 @@ async function withdrawRewards(customAddress: string) {
         },
       },
       {
-        gasLimit: 300_000,
+        gasLimit: 500_000,
       }
     );
     if (withdrawRewards.code == 0) {
@@ -224,7 +223,6 @@ async function withdrawRewards(customAddress: string) {
 async function getTier() {
   try {
     const secretjs = await secretJsKeplr();
-    const secrekey = await SECRET_KEY();
 
     const getTier: any = await secretjs.query.compute.queryContract({
       contract_address: IDO_CONTRACT_ADDRESS,
@@ -232,7 +230,7 @@ async function getTier() {
       query: {
         tier_info: {
           address: secretjs.address,
-          viewing_key: secrekey,
+          viewing_key: SECRET_KEY,
         },
       },
     });
@@ -362,7 +360,7 @@ async function startIdo(ido: any) {
         },
       },
       {
-        gasLimit: 300_000,
+        gasLimit: 500_000,
       }
     );
     const tx = await secretjs.tx.compute.executeContract(
@@ -393,7 +391,7 @@ async function startIdo(ido: any) {
         },
       },
       {
-        gasLimit: 300_000,
+        gasLimit: 500_000,
       }
     );
     return tx.code == 0;
@@ -407,7 +405,6 @@ async function invest(amount: number) {
   try {
     const secretjs = await secretJsKeplr();
     const rate = await getIDOInfo();
-    const secrekey = await SECRET_KEY();
 
     const buyToken: any = await secretjs.tx.compute.executeContract(
       {
@@ -418,7 +415,7 @@ async function invest(amount: number) {
           buy_tokens: {
             amount: (amount * rate.price).toString(),
             ido_id: 0,
-            viewing_key: secrekey,
+            viewing_key: SECRET_KEY,
           },
         },
         sent_funds: [
@@ -426,7 +423,7 @@ async function invest(amount: number) {
         ],
       },
       {
-        gasLimit: 300_000,
+        gasLimit: 500_000,
       }
     );
     if (buyToken.code !== 0) toast.error(buyToken.rawLog);
@@ -452,7 +449,7 @@ async function recvTokens() {
         },
       },
       {
-        gasLimit: 300_000,
+        gasLimit: 500_000,
       }
     );
     if (recvTokens.code !== 0) toast.error(recvTokens.rawLog);

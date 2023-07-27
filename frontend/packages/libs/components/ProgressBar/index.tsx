@@ -12,7 +12,6 @@ type ProgressBarProps = {
 export const ProgressBar = memo<ProgressBarProps>(
   ({ progress, className, softcap }) => {
     const progressWidth = useMemo(() => `${progress * 100}%`, [progress]);
-    console.log(softcap);
 
     return (
       <div className={cx(styles.progress_bar_container, className)}>

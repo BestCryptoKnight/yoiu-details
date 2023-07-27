@@ -42,9 +42,7 @@ export const JoinModal = memo<Props>(
         (async () => {
           setLoading(true);
           const { tier } = await getTier();
-          console.log({tier});
           const result = await getAllUserInfo();
-          console.log({result})
           const rate = await usdRate();
 
           if (result) {
@@ -131,7 +129,7 @@ export const JoinModal = memo<Props>(
             <Text>{tier}</Text>
           </div>
           <div className={styles.upgrade_button}>
-            <Link to="/user">Upgrade</Link>
+            <a href="https://app.yoiu.io/user">Upgrade</a>
             <div onMouseEnter={openTooltip} onMouseLeave={closeTooltip}>
               <Image url={infoIcon} />
             </div>

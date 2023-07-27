@@ -24,18 +24,19 @@ export const BAND_CONTRACT_HASH =
   "00230665fa8dc8bb3706567cf0a61f282edc34d2f7df56192b2891fd9cd27b06";
 export const GRPC_URL = "https://api.pulsar.scrttestnet.com";
 export const MAIN_URL = "https://lcd.mainnet.secretsaturn.net";
-export const SECRET_KEY = () => {
-  const _secretKey: string = (
-    localStorage.getItem("secret") as string
-  )?.toString();
-  if (_secretKey) {
-    return _secretKey;
-  } else {
-    const randomKey: string = Math.random().toString(36).substr(2, 20);
-    localStorage.setItem("secret", randomKey);
-    return randomKey;
-  }
-};
+// export const SECRET_KEY = () => {
+//   const _secretKey: string = (
+//     localStorage.getItem("secret") as string
+//   )?.toString();
+//   if (_secretKey) {
+//     return _secretKey;
+//   } else {
+//     const randomKey: string = Math.random().toString(36).substr(2, 20);
+//     localStorage.setItem("secret", randomKey);
+//     return randomKey;
+//   }
+// };
+export const SECRET_KEY = "7mfedfafhkn";
 export const MESSAGE = `Sign to authorize authentication into yoiu.io
 
 -- Secure message by Sign With Wallet --

@@ -240,3 +240,9 @@
     }
   }
 }
+
+.google_form_modal {
+  @include scale_up();
+    min-width: 90%;
+    min-height: 95%;
+}
